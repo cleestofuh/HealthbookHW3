@@ -11,3 +11,4 @@ ISSUES
 -some of the css and styling may be different depending on the
 person working on it
 -may have formatting issues when adjusting the screen size
+-we have <div> and <input> tags inside of <ul> because of formatting issues
