@@ -78,7 +78,6 @@ input[type=text] {
 .button {
   width: 20%;
   height: 50px;
-  margin-top: 5%;
   background-color: #92DCE0;
   color: #FFF;
   text-decoration: none;
@@ -105,7 +104,7 @@ input[type=text] {
 .center {
   text-align: center;
   margin: auto;
-  margin-top: 7%;
+  margin-top: 5%;
 }
 
 .hor-center {
@@ -142,7 +141,7 @@ ul {
     list-style-type: none;
     margin: auto;
     text-align: center;
-    width: 39%;
+    width: 40%;
     padding: 0;
     overflow: hidden;
 }
@@ -195,7 +194,7 @@ div.square-edit {
 }
 
 a:link, a:visited {
-    display: block;
+    display: inline-block;
     width: 200px;
     font-weight: bold;
     color: #FFFFFF;
@@ -214,8 +213,8 @@ a:hover, a:active {
     background-color: #83C6C9;
 }
 
-.circle {
-  display: block;
+.btn-circle {
+  display: inline-block;
   width: 150px;
   height: 150px;
   border-radius: 99px;
@@ -234,8 +233,8 @@ a:hover, a:active {
   background: #92DCE0;
 }
 
-.circle-edit {
-  display: block;
+.btn-circle-edit {
+  display: inline-block;
   width: 150px;
   height: 150px;
   border-radius: 99px;
@@ -254,15 +253,15 @@ a:hover, a:active {
   background: #83C6C9;
 }
 
-.circle:hover {
+.btn-circle:hover {
   border: 4px solid #FFF;
   color: #FFF;
   text-decoration: none;
   background: #83C6C9;
 }
 
-.small-circle {
-  display: block;
+.btn-small-circle {
+  display: inline-block;
   width: 100px;
   height: 100px;
   border-radius: 66px;
@@ -281,8 +280,8 @@ a:hover, a:active {
   background: #92DCE0;
 }
 
-.small-circle-edit {
-  display: block;
+.btn-small-circle-edit {
+  display: inline-block;
   width: 100px;
   height: 100px;
   border-radius: 66px;
@@ -301,15 +300,15 @@ a:hover, a:active {
   background: #83C6C9;
 }
 
-.small-circle:hover {
+.btn-small-circle:hover {
   border: 4px solid #FFF;
   color: #FFF;
   text-decoration: none;
   background: #83C6C9;
 }
 
-.square {
-  display: block;
+.btn-square {
+  display: inline-block;
   width: 100px;
   height: 100px;
   border-radius: 30px;
@@ -328,8 +327,8 @@ a:hover, a:active {
   background: #92DCE0;
 }
 
-.square-edit {
-  display: block;
+.btn-square-edit {
+  display: inline-block;
   width: 100px;
   height: 100px;
   border-radius: 30px;
@@ -348,7 +347,7 @@ a:hover, a:active {
   background: #83C6C9;
 }
 
-.square:hover {
+.btn-square:hover {
   border: 4px solid #FFF;
   color: #FFF;
   text-decoration: none;
