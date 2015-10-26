@@ -78,7 +78,6 @@ input[type=text] {
 .button {
   width: 20%;
   height: 50px;
-  margin-top: 5%;
   background-color: #92DCE0;
   color: #FFF;
   text-decoration: none;
@@ -105,7 +104,7 @@ input[type=text] {
 .center {
   text-align: center;
   margin: auto;
-  margin-top: 8%;
+  margin-top: 5%;
 }
 
 .hor-center {
