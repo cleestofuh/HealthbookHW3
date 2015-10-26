@@ -10,9 +10,17 @@ p {
   font-variant: normal;
   font-weight: 500;
   line-height: 26.4px;
-  text-align: center;
   margin: auto;
   width: 60%;
+}
+
+p.notes {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, sans-serif;
+  font-size: 30px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 500;
+  line-height: 26.4px;
 }
 
 p.small {
@@ -43,6 +51,18 @@ b.vice {
   font-variant: normal;
   font-weight: 500;
   line-height: 26.4px;
+}
+
+h1 {
+   width: 100%;
+   text-align: center;
+   margin: 10px 0 20px;
+   margin-top: 60px;
+   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, sans-serif;
+   font-size: 45px;
+   font-style: normal;
+   font-variant: normal;
+   font-weight: 500;
 }
 
 h2 {
@@ -198,15 +218,17 @@ a:hover, a:active {
 #inner {
 	width:50%;
 	height:50%;
+  text-align: center;
 }
 
 .circle {
 	width: 30px;
 	height: 30px;
-	background: blue;
-	-moz-border-radius: 15px;
-	-webkit-border-radius: 15px;
-	border-radius: 15px;
+	background: #92DCE0;
+  border: 3px solid #FFFFFF;
+	-moz-border-radius: 20px;
+	-webkit-border-radius: 20px;
+	border-radius: 20px;
 }
 
 .note {
