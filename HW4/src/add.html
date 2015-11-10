@@ -13,7 +13,7 @@
 			<h2>Add A Habit</h2>
 			<form>
 				<p><label><span id="title_text">Habit Title</span></label></p>
-				<p><input id="title" type="text" name="fullname" placeholder="Exercise 30 minutes"></p>
+				<p><input id="title" type="text" name="fullname" value="Exercise 30 minutes"></p>
 				<p><label>Habit Icon</label></p>
 				<img id="icon1" class="icon" onclick="selectImage('icon1');" src="../img/sleep.jpg" alt="sleep image"/>
 				<img id="icon2" class="icon" onclick="selectImage('icon2');" src="../img/salad.jpg" alt="eat image"/>
@@ -42,13 +42,17 @@
 				<p id="save_p"><input id="save" type="button" value="Save It" onclick="saveHabit()"></p>
 				
 			</form>
-
 		</div>
 		<script type="text/javascript">
 			Parse.initialize("rriccses0xkmfyCu8JHUbRB3n4mJW1H3okqs1Sjh", "z8QtkGlujwURiXFdYzi4SV7L9X6BxWdQG6bVecA2");
 		</script>
 		<script>
-			var imageName;
+			function init(){
+				var image = document.getElementById("icon1");
+				image.style.border = "5px solid #42A5F5";
+			}
+			window.onload = init();
+			var imageName = "icon1";
 			function selectImage(name) {
 				//Clear all the other effects
 
@@ -61,7 +65,6 @@
 				imageName = name;
 			}
 			function saveHabit(){
-				document.getElementById('save').value = 'Saved!';
 				var Habit = Parse.Object.extend("Habit");
 				var habit = new Habit();
 				var daysofweek = [];
@@ -70,6 +73,9 @@
 				});
 				var timesPerDay = $('input[name="day"]:checked').val();
 				var timesPerDayInt;
+				if(typeof timesPerDay === 'undefined'){
+					timesPerDay = document.getElementById('others').value;
+				};
 				switch(timesPerDay){
 					case "one":
 						timesPerDayInt = 1;
@@ -81,8 +87,15 @@
 						timesPerDayInt = 3;
 						break;
 					default:
-						timesPerDayInt = 1;
+						timesPerDayInt = parseInt(timesPerDay);
+						if(Number.isNaN(timesPerDayInt)){
+							document.getElementById('others').value = 'Not a valid integer.';
+							return;
+						}
 						break;
+				}
+				if(daysofweek.length==0){
+					daysofweek = ["sunday","monday","tuesday","wednesday","thursday","friday","saturday"];
 				}
 				habit.save({
 				  image: imageName,
@@ -93,14 +106,16 @@
 				  success: function(habit) {
 					// The object was saved successfully.
 					console.log('successfully saved habit');
+					document.getElementById('save').value = 'Saved!';
+					window.location.assign("list.html");
 				  },
 				  error: function(habit, error) {
 					// The save failed.
 					// error is a Parse.Error with an error code and message.
 					console.log('failed to save habit');
+					document.getElementById('save').value = 'Error while saving.';
 				  }
 				});
-				window.location.assign("list.html");
 			}
 		</script>
 	</body>
