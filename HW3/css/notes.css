@@ -1,0 +1,239 @@
+body {
+  background-color: #92DCE0;
+  color: #FFF
+}
+
+p {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, sans-serif;
+  font-size: 30px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 500;
+  line-height: 26.4px;
+  margin: auto;
+  width: 60%;
+}
+
+p.notes {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, sans-serif;
+  font-size: 30px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 500;
+  line-height: 26.4px;
+}
+
+p.small {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, sans-serif;
+  font-size: 20px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 250;
+  line-height: 26.4px;
+  text-align: center;
+  margin: auto;
+  width: 29%;
+}
+
+p.big {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, sans-serif;
+  font-size: 100px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 500;
+  line-height: 26.4px;
+}
+
+b.vice {
+  font-family: 'Brush Script MT', cursive;
+  font-size: 120px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 500;
+  line-height: 26.4px;
+}
+
+h1 {
+   width: 100%;
+   text-align: center;
+   margin: 10px 0 20px;
+   margin-top: 60px;
+   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, sans-serif;
+   font-size: 45px;
+   font-style: normal;
+   font-variant: normal;
+   font-weight: 500;
+}
+
+h2 {
+   width: 100%;
+   text-align: center;
+   border-bottom: 2px solid #fff;
+   line-height: 0.1em;
+   margin: 10px 0 20px;
+   margin-top: 60px;
+   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, sans-serif;
+   font-size: 30px;
+   font-style: normal;
+   font-variant: normal;
+   font-weight: 500;
+}
+
+h2 span {
+    background:#92DCE0;
+    padding:0 10px;
+}
+
+input[type=text] {
+  border: 1px #999;
+  border-radius: 0;
+  width: 30%;
+  height: 35px;
+  -webkit-appearance: none;
+}
+
+.button {
+  width: 20%;
+  height: 50px;
+  margin-top: 5%;
+  background-color: #92DCE0;
+  color: #FFF;
+  text-decoration: none;
+  cursor: pointer;
+  border-width: 3px;
+  border-style: solid;
+  border-color: #FFF;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, sans-serif;
+  font-size: 30px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 500;
+  line-height: 26.4px;
+}
+
+.home-center {
+    height: 10em;
+    position: relative;
+    text-align: center;
+    margin: auto;
+    margin-top: 20%;
+}
+
+.center {
+  text-align: center;
+  margin: auto;
+  margin-top: 8%;
+}
+
+.hor-center {
+    text-align: center;
+    margin: auto;
+    margin-top: 5%;
+}
+
+.circle-center {
+    text-align: center;
+    margin: auto;
+    width: 70%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+.small-circle-center {
+    text-align: center;
+    margin: auto;
+    width: 22%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+.square-center {
+    text-align: center;
+    margin: auto;
+    width: 55%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+ul {
+    list-style-type: none;
+    margin: auto;
+    text-align: center;
+    width: 39%;
+    padding: 0;
+    overflow: hidden;
+}
+
+li {
+    float: left;
+}
+
+div.circle {
+  float: left;
+  margin-left: 2%;
+  margin-top: 1%;
+  margin-bottom: 1%;
+}
+
+div.small-circle {
+  float: left;
+  margin-left: 2%;
+  margin-top: 1%;
+  margin-bottom: 1%;
+}
+
+div.square {
+  float: left;
+  margin-left: 2%;
+  margin-top: 1%;
+  margin-bottom: 1%;
+}
+
+a:link, a:visited {
+    display: block;
+    width: 200px;
+    font-weight: bold;
+    color: #FFFFFF;
+    background-color: #72CCFD;
+    text-align: center;
+    padding: 4px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, sans-serif;
+    font-size: 30px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+a:hover, a:active {
+    background-color: #222222;
+}
+
+.outer {
+    display:box;
+    -moz-box-pack:center;
+    -moz-box-align:center;
+}
+
+.inner {
+	width:50%;
+	height:50%;
+  text-align: center;
+}
+
+.circle {
+	width: 30px;
+	height: 30px;
+	background: #92DCE0;
+  border: 3px solid #FFFFFF;
+	-moz-border-radius: 20px;
+	-webkit-border-radius: 20px;
+	border-radius: 20px;
+}
+
+.note {
+	width: 80%;
+    padding: 25px;
+    border: 25px;
+    margin: 25px;
+}

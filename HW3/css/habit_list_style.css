@@ -46,7 +46,7 @@ p {
     font-size: 10px;
     color:#FFF;
     margin-top:0;
-    text-align: left;
+    margin-right: 10px;
     text-decoration: none;
     text-shadow: 0 1px 0 #FFF;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, sans-serif;
@@ -54,6 +54,16 @@ p {
     font-style: normal;
     font-variant: normal;
     font-weight: 500;
+}
+
+p.small-txt {
+  font-size: 20px;
+  font-weight: 300;
+}
+
+p.percent {
+  font-size: 50px;
+  margin-right: 50px;
 }
 
 .num {
@@ -212,16 +222,45 @@ a:hover, a:active {
 	height: 100px;
 }
 
-.btn-thumb-circle#up img {
+.btn-thumb-circle-up img {
 	padding-top: 15px;
 	width: 80px;
 	height: 80px;
 }
 
-.btn-thumb-circle#down img {
+.btn-thumb-circle-down img {
 	padding-top: 25px;
 	width: 80px;
 	height: 80px;
+}
+
+.btn-square {
+  display: inline-block;
+  width: 100px;
+  height: 50px;
+  border-radius: 30px;
+  margin-right: 20px;
+  margin-left: 120px;
+  border: 4px solid #FFF;
+  font-size: 20px;
+  color:#FFF;
+  line-height: 50px;
+  text-align: center;
+  text-decoration: none;
+  text-shadow: 0 1px 0 #FFF;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, sans-serif;
+  font-size: 20px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 500;
+  background: #92DCE0;
+}
+
+.btn-square:hover {
+  border: 4px solid #FFF;
+  color: #FFF;
+  text-decoration: none;
+  background: #83C6C9;
 }
 
 hr {
