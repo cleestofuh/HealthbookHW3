@@ -209,13 +209,13 @@ a:hover, a:active {
     background-color: #222222;
 }
 
-.outer {
+#outer {
     display:box;
     -moz-box-pack:center;
     -moz-box-align:center;
 }
 
-.inner {
+#inner {
 	width:50%;
 	height:50%;
   text-align: center;

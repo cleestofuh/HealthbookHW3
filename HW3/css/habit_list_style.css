@@ -1,7 +1,11 @@
 body {
   background-color: #92DCE0;
   color: #FFF;
+}
 
+.menubar {
+    margin: auto;
+    text-align: center;
 }
 
 .habit_title {

@@ -1,62 +1,79 @@
 body {
-  background-color: #92DCE0;
-  color: #FFF
+    background-color: #92DCE0;
+    color: #FFF
+}
+
+.menubar {
+    margin: auto;
+    text-align: center;
 }
 
 p {
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, sans-serif;
-  font-size: 30px;
-  font-style: normal;
-  font-variant: normal;
-  font-weight: 500;
-  line-height: 26.4px;
-  text-align: center;
-  margin: auto;
-  width: 60%;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, sans-serif;
+    font-size: 30px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 500;
+    line-height: 26.4px;
+    text-align: center;
+    margin: auto;
+    width: 60%;
 }
 
 p.small {
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, sans-serif;
-  font-size: 20px;
-  font-style: normal;
-  font-variant: normal;
-  font-weight: 250;
-  line-height: 26.4px;
-  text-align: center;
-  margin: auto;
-  width: 29%;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, sans-serif;
+    font-size: 20px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 250;
+    line-height: 26.4px;
+    text-align: center;
+    margin: auto;
+    width: 29%;
 }
 
 p.big {
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, sans-serif;
-  font-size: 100px;
-  font-style: normal;
-  font-variant: normal;
-  font-weight: 500;
-  line-height: 26.4px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, sans-serif;
+    font-size: 100px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 500;
+    line-height: 26.4px;
 }
 
 b.vice {
-  font-family: 'Brush Script MT', cursive;
-  font-size: 120px;
-  font-style: normal;
-  font-variant: normal;
-  font-weight: 500;
-  line-height: 26.4px;
+    font-family: 'Brush Script MT', cursive;
+    font-size: 120px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 500;
+    line-height: 26.4px;
+}
+
+h1 {
+    width: 100%;
+    text-align: center;
+    margin: 10px 0 20px;
+    margin-top: 60px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, sans-serif;
+    font-size: 50px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 500;
 }
 
 h2 {
-   width: 100%;
-   text-align: center;
-   border-bottom: 2px solid #fff;
-   line-height: 0.1em;
-   margin: 10px 0 20px;
-   margin-top: 60px;
-   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, sans-serif;
-   font-size: 30px;
-   font-style: normal;
-   font-variant: normal;
-   font-weight: 500;
+    width: 100%;
+    text-align: center;
+    border-bottom: 2px solid #fff;
+    line-height: 0.1em;
+    margin: 10px 0 20px;
+    margin-top: 60px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, sans-serif;
+    font-size: 30px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 500;
 }
 
 h2 span {
@@ -65,32 +82,32 @@ h2 span {
 }
 
 input[type=text] {
-  border: 1px #999;
-  border-radius: 0;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, sans-serif;
-  font-size: 20px;
-  color: #66CCCC;
-  width: 30%;
-  height: 35px;
-  -webkit-appearance: none;
+    border: 1px #999;
+    border-radius: 0;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, sans-serif;
+    font-size: 20px;
+    color: #66CCCC;
+    width: 30%;
+    height: 35px;
+    -webkit-appearance: none;
 }
 
 .button {
-  width: 20%;
-  height: 50px;
-  background-color: #92DCE0;
-  color: #FFF;
-  text-decoration: none;
-  cursor: pointer;
-  border-width: 3px;
-  border-style: solid;
-  border-color: #FFF;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, sans-serif;
-  font-size: 30px;
-  font-style: normal;
-  font-variant: normal;
-  font-weight: 500;
-  line-height: 26.4px;
+    width: 20%;
+    height: 50px;
+    background-color: #92DCE0;
+    color: #FFF;
+    text-decoration: none;
+    cursor: pointer;
+    border-width: 3px;
+    border-style: solid;
+    border-color: #FFF;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, sans-serif;
+    font-size: 30px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 500;
+    line-height: 26.4px;
 }
 
 .home-center {
@@ -102,9 +119,9 @@ input[type=text] {
 }
 
 .center {
-  text-align: center;
-  margin: auto;
-  margin-top: 5%;
+    text-align: center;
+    margin: auto;
+    margin-top: 5%;
 }
 
 .hor-center {
@@ -116,7 +133,7 @@ input[type=text] {
 .circle-center {
     text-align: center;
     margin: auto;
-    width: 70%;
+    width: auto;
     margin-top: 5%;
     margin-bottom: 5%;
 }
@@ -124,7 +141,7 @@ input[type=text] {
 .small-circle-center {
     text-align: center;
     margin: auto;
-    width: 22%;
+    width: auto;
     margin-top: 5%;
     margin-bottom: 5%;
 }
@@ -132,7 +149,7 @@ input[type=text] {
 .square-center {
     text-align: center;
     margin: auto;
-    width: 55%;
+    width: auto;
     margin-top: 5%;
     margin-bottom: 5%;
 }
@@ -151,46 +168,46 @@ li {
 }
 
 div.circle {
-  float: left;
-  margin-left: 2%;
-  margin-top: 1%;
-  margin-bottom: 1%;
+    float: left;
+    margin-left: 2%;
+    margin-top: 1%;
+    margin-bottom: 1%;
 }
 
 div.circle-edit {
-  float: left;
-  margin-left: 2%;
-  margin-top: 1%;
-  margin-bottom: 1%;
+    float: left;
+    margin-left: 2%;
+    margin-top: 1%;
+    margin-bottom: 1%;
 }
 
 div.small-circle {
-  float: left;
-  margin-left: 2%;
-  margin-top: 1%;
-  margin-bottom: 1%;
+    float: left;
+    margin-left: 2%;
+    margin-top: 1%;
+    margin-bottom: 1%;
 }
 
 div.small-circle-edit {
-  float: left;
-  margin-left: 2%;
-  margin-top: 1%;
-  margin-bottom: 1%;
+    float: left;
+    margin-left: 2%;
+    margin-top: 1%;
+    margin-bottom: 1%;
 }
 
 
 div.square {
-  float: left;
-  margin-left: 2%;
-  margin-top: 1%;
-  margin-bottom: 1%;
+    float: left;
+    margin-left: 2%;
+    margin-top: 1%;
+    margin-bottom: 1%;
 }
 
 div.square-edit {
-  float: left;
-  margin-left: 2%;
-  margin-top: 1%;
-  margin-bottom: 1%;
+    float: left;
+    margin-left: 2%;
+    margin-top: 1%;
+    margin-bottom: 1%;
 }
 
 a:link, a:visited {
@@ -214,142 +231,142 @@ a:hover, a:active {
 }
 
 .btn-circle {
-  display: inline-block;
-  width: 150px;
-  height: 150px;
-  border-radius: 99px;
-  border: 4px solid #FFF;
-  font-size: 20px;
-  color:#FFF;
-  line-height: 150px;
-  text-align: center;
-  text-decoration: none;
-  text-shadow: 0 1px 0 #FFF;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, sans-serif;
-  font-size: 20px;
-  font-style: normal;
-  font-variant: normal;
-  font-weight: 500;
-  background: #92DCE0;
+    display: inline-block;
+    width: 150px;
+    height: 150px;
+    border-radius: 99px;
+    border: 4px solid #FFF;
+    font-size: 20px;
+    color:#FFF;
+    line-height: 150px;
+    text-align: center;
+    text-decoration: none;
+    text-shadow: 0 1px 0 #FFF;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, sans-serif;
+    font-size: 20px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 500;
+    background: #92DCE0;
 }
 
 .btn-circle-edit {
-  display: inline-block;
-  width: 150px;
-  height: 150px;
-  border-radius: 99px;
-  border: 4px solid #FFF;
-  font-size: 20px;
-  color:#FFF;
-  line-height: 150px;
-  text-align: center;
-  text-decoration: none;
-  text-shadow: 0 1px 0 #FFF;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, sans-serif;
-  font-size: 20px;
-  font-style: normal;
-  font-variant: normal;
-  font-weight: 500;
-  background: #83C6C9;
+    display: inline-block;
+    width: 150px;
+    height: 150px;
+    border-radius: 99px;
+    border: 4px solid #FFF;
+    font-size: 20px;
+    color:#FFF;
+    line-height: 150px;
+    text-align: center;
+    text-decoration: none;
+    text-shadow: 0 1px 0 #FFF;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, sans-serif;
+    font-size: 20px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 500;
+    background: #83C6C9;
 }
 
 .btn-circle:hover {
-  border: 4px solid #FFF;
-  color: #FFF;
-  text-decoration: none;
-  background: #83C6C9;
+    border: 4px solid #FFF;
+    color: #FFF;
+    text-decoration: none;
+    background: #83C6C9;
 }
 
 .btn-small-circle {
-  display: inline-block;
-  width: 100px;
-  height: 100px;
-  border-radius: 66px;
-  border: 4px solid #FFF;
-  font-size: 20px;
-  color:#FFF;
-  line-height: 100px;
-  text-align: center;
-  text-decoration: none;
-  text-shadow: 0 1px 0 #FFF;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, sans-serif;
-  font-size: 20px;
-  font-style: normal;
-  font-variant: normal;
-  font-weight: 500;
-  background: #92DCE0;
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+    border-radius: 66px;
+    border: 4px solid #FFF;
+    font-size: 20px;
+    color:#FFF;
+    line-height: 100px;
+    text-align: center;
+    text-decoration: none;
+    text-shadow: 0 1px 0 #FFF;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, sans-serif;
+    font-size: 20px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 500;
+    background: #92DCE0;
 }
 
 .btn-small-circle-edit {
-  display: inline-block;
-  width: 100px;
-  height: 100px;
-  border-radius: 66px;
-  border: 4px solid #FFF;
-  font-size: 20px;
-  color:#FFF;
-  line-height: 100px;
-  text-align: center;
-  text-decoration: none;
-  text-shadow: 0 1px 0 #FFF;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, sans-serif;
-  font-size: 20px;
-  font-style: normal;
-  font-variant: normal;
-  font-weight: 500;
-  background: #83C6C9;
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+    border-radius: 66px;
+    border: 4px solid #FFF;
+    font-size: 20px;
+    color:#FFF;
+    line-height: 100px;
+    text-align: center;
+    text-decoration: none;
+    text-shadow: 0 1px 0 #FFF;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, sans-serif;
+    font-size: 20px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 500;
+    background: #83C6C9;
 }
 
 .btn-small-circle:hover {
-  border: 4px solid #FFF;
-  color: #FFF;
-  text-decoration: none;
-  background: #83C6C9;
+    border: 4px solid #FFF;
+    color: #FFF;
+    text-decoration: none;
+    background: #83C6C9;
 }
 
 .btn-square {
-  display: inline-block;
-  width: 100px;
-  height: 100px;
-  border-radius: 30px;
-  border: 4px solid #FFF;
-  font-size: 20px;
-  color:#FFF;
-  line-height: 100px;
-  text-align: center;
-  text-decoration: none;
-  text-shadow: 0 1px 0 #FFF;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, sans-serif;
-  font-size: 20px;
-  font-style: normal;
-  font-variant: normal;
-  font-weight: 500;
-  background: #92DCE0;
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+    border-radius: 30px;
+    border: 4px solid #FFF;
+    font-size: 20px;
+    color:#FFF;
+    line-height: 100px;
+    text-align: center;
+    text-decoration: none;
+    text-shadow: 0 1px 0 #FFF;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, sans-serif;
+    font-size: 20px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 500;
+    background: #92DCE0;
 }
 
 .btn-square-edit {
-  display: inline-block;
-  width: 100px;
-  height: 100px;
-  border-radius: 30px;
-  border: 4px solid #FFF;
-  font-size: 20px;
-  color:#FFF;
-  line-height: 100px;
-  text-align: center;
-  text-decoration: none;
-  text-shadow: 0 1px 0 #FFF;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, sans-serif;
-  font-size: 20px;
-  font-style: normal;
-  font-variant: normal;
-  font-weight: 500;
-  background: #83C6C9;
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+    border-radius: 30px;
+    border: 4px solid #FFF;
+    font-size: 20px;
+    color:#FFF;
+    line-height: 100px;
+    text-align: center;
+    text-decoration: none;
+    text-shadow: 0 1px 0 #FFF;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, sans-serif;
+    font-size: 20px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 500;
+    background: #83C6C9;
 }
 
 .btn-square:hover {
-  border: 4px solid #FFF;
-  color: #FFF;
-  text-decoration: none;
-  background: #83C6C9;
+    border: 4px solid #FFF;
+    color: #FFF;
+    text-decoration: none;
+    background: #83C6C9;
 }
