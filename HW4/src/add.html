@@ -21,7 +21,7 @@
 				<img id="icon2" class="icon" onclick="selectImage('icon2');" src="../img/salad.jpg" alt="eat image"/>
 				<img id="icon3" class="icon" onclick="selectImage('icon3');" src="../img/run.jpg" alt="run image"/>
 				<img id="icon4" class="icon" src="../img/add.png" alt="find a image"/>
-				<p style="color:red;" id="habiticonError"></p>
+				<p style="color:red;" id="habiticonError" value="false"></p>
 
 				<p><label>Weekly Frequency</label></p>
 				<div id="ck-button">
@@ -79,7 +79,6 @@
 				var Habit = Parse.Object.extend("Habit");
 				var habit = new Habit();
 				var daysofweek = [];
-				var habitQuery = new Parse.Query(Habit);
 
 				var habitTitle = document.getElementById("title").value;
 
@@ -90,20 +89,34 @@
 				}
 				else{
 					// check if title already exists
-					/*
+					
 					habitTitle = document.getElementById("title").value;
+
+					//document.getElementById("habittitleError").innerHTML = habitTitle;
+
+					var habitQuery = new Parse.Query(Habit);
+					
 					habitQuery.equalTo("habitName", habitTitle);
-					habitQuery.find({
-						success: function(object){
-							document.getElementById("habittitleError").innerHTML = '* Habit Title already exists!';
-							//document.getElementById("habittitleError").value='true';
+
+					document.getElementById("habittitleError").value='false';
+					
+					habitQuery.first({
+						success: function(Habit){
+							if (Habit){
+								document.getElementById("habittitleError").innerHTML = '* Habit Title already exists!';
+								document.getElementById("habittitleError").value='true';
+							}
 						},
-						error: function(error){
+						error: function(Habit){
 							document.getElementById("habittitleError").innerHTML = '';
-							//document.getElementById("habittitleError").value='false';
+							document.getElementById("habittitleError").value='false';
 						}
 
-					});*/
+					});
+					if (document.getElementById("habittitleError").value=='true'){
+						return;
+					}
+
 					document.getElementById("habittitleError").innerHTML = '';
 				}
 
@@ -157,6 +170,49 @@
 						break;
 				}
 
+				// cloud code
+				
+				/*
+				Parse.Cloud.beforeSave("Habit", function(request, response)){
+					var newHabit = request.object;
+					var habitQuery = new Parse.Query(Habit);
+					habitQuery.equalTo("habitName", newHabit.get("habitName"));
+					habitQuery.first({
+						success: function(object){
+							if (object){
+								response.error("* Habit already exists!");
+								document.getElementById("habittitleError").innerHTML = '* Habit Title already exists!';}
+							} else {
+								habit.save({
+								  image: imageName,
+								  habitName: habitTitle,
+								  weekFreq: daysofweek,
+								  dailyFreq: timesPerDayInt
+								}, {
+								  success: function(habit) {
+									// The object was saved successfully.
+									console.log('successfully saved habit');
+									document.getElementById('save').value = 'Saved!';
+									window.location.assign("list.html");
+									response.success();
+								  },
+								  error: function(habit, error) {
+									// The save failed.
+									// error is a Parse.Error with an error code and message.
+									console.log('failed to save habit');
+									document.getElementById('save').value = 'Error while saving.';
+									response.error(error);
+								  }
+								});
+							}
+						},
+						error: function(error){
+							response.error("Could not validate uniqueness for this Habit object")
+						}
+					});
+				}*/
+
+				
 				habit.save({
 				  image: imageName,
 				  habitName: habitTitle,
