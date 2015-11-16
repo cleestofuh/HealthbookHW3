@@ -118,6 +118,7 @@ body {
 	margin: 0;
 	padding: 0;
 	padding-left: 2px;
+	text-align: center;
 	-webkit-transition: bottom 1s, height 0.5s;
 	transition: bottom 1s, height 0.5s;
   -webkit-appearance:none;
@@ -188,5 +189,3 @@ body {
 	opacity: 0.75;
 	cursor: pointer;
 }
-
-
