@@ -14,11 +14,15 @@
 			<form>
 				<p><label><span id="title_text">Habit Title</span></label></p>
 				<p><input id="title" type="text" name="fullname" placeholder="Exercise 30 minutes"></p>
+				<p style="color:red;" id="habittitleError"></p>
+
 				<p><label>Habit Icon</label></p>
 				<img id="icon1" class="icon" onclick="selectImage('icon1');" src="../img/sleep.jpg" alt="sleep image"/>
 				<img id="icon2" class="icon" onclick="selectImage('icon2');" src="../img/salad.jpg" alt="eat image"/>
 				<img id="icon3" class="icon" onclick="selectImage('icon3');" src="../img/run.jpg" alt="run image"/>
 				<img class="icon" src="../img/add.png" alt="find a image"/>
+				<p style="color:red;" id="habiticonError" value="false"></p>
+				
 				<p><label>Weekly Frequency</label></p>
 				<div id="ck-button">
 					<label> <input type="checkbox" id="sunday" name="date" value="sunday"><span>Sun</span></label>
@@ -29,7 +33,7 @@
 					<label> <input type="checkbox" id="friday" name="date" value="friday"><span>Fri</span></label>
 					<label> <input type="checkbox" id="saturday" name="date" value="saturday"><span>Sat</span></label>
 				</div>
-		
+				<p style="color:red;" id="weekfreError"></p>
 		
 				<p><label>Daily Frequency</label></p>
 				<div id="daily-button">
@@ -39,7 +43,9 @@
 					<span id="times">times</span>
 				</div>
 				<p><label><span id="others_text">Others: </span><input id="others" type="text" name="day" placeholder="More than 3 times"></label></p>
-				<p id="save_p"><input id="save" type="button" value="Save It" onclick="location.href='list.html'"></p>
+				<p style="color:red;" id="otherError"></p>
+
+				<p id="save_p"><input id="save" type="button" value="Save It" onclick="saveHabit()"></p>
 				
 			</form>
 
@@ -48,43 +54,48 @@
 			Parse.initialize("rriccses0xkmfyCu8JHUbRB3n4mJW1H3okqs1Sjh", "z8QtkGlujwURiXFdYzi4SV7L9X6BxWdQG6bVecA2");
 		</script>
 		<script>
-			var username = "Bob";
-			var user;
+			var currentuser;
+			var username;
 			var habit;
 			function init(){
+				currentuser = Parse.User.current();
+				username = currentuser.get("username");
 				//fetch habit from database
 				var Habit = Parse.Object.extend("Habit");
-				var User = Parse.Object.extend("User");
-				var userquery = new Parse.Query(User);
-				userquery.equalTo("username", username);
-				userquery.find({
-				  success: function(object) {
-				    // Do something with the returned Parse.Object values
-				    user = object;
-				  },
-				  error: function(error) {
-				    alert("Error: " + error.code + " " + error.message);
-				  }
+				var habitname;
+				currentuser.fetch({
+				   success: function(currentuser){
+					habitname = currentuser.get("lastehabit");
+					var habitquery = new Parse.Query(Habit);
+					habitquery.equalTo("habitName", habitname);
+					habitquery.equalTo("username", username);
+					habitquery.find({
+					  success: function(results) {
+					    // Do something with the returned Parse.Object values
+					    var object = results[0];
+					    object.fetch({
+						success: function(object){
+						    selectImage(object.get("image"));
+						    document.getElementById("title").value = object.get("habitName");
+						    document.getElementById("others").value = object.get("dailyFreq");
+						    var weekFreq = object.get("weekFreq");
+						    var week = ["sunday","monday","tuesday","wednesday","thursday","friday","saturday"];
+						    for(var i = 0; i < week.length; i++){
+							document.getElementById(week[i]).checked = false;
+						    }
+						    for(var i = 0; i < weekFreq.length; i++){
+							document.getElementById(weekFreq[i]).checked = true;
+						    }
+						    habit = object;
+                                                }
+					    });
+					  },
+					  error: function(error) {
+					    alert("Error: " + error.code + " " + error.message);
+					  }
+					});
+				   }
 				});
-				var habitname = user.get("lastEditedHabit");
-				var habitquery = new Parse.Query(Habit);
-				habitquery.equalTo("habitName",habitname);
-				habitquery.find({
-				  success: function(object) {
-				    // Do something with the returned Parse.Object values
-				    habit = object;
-				  },
-				  error: function(error) {
-				    alert("Error: " + error.code + " " + error.message);
-				  }
-				});
-				selectImage(habit.get("image"));
-				document.getElementById("title").value = habit.get("habitName");
-				document.getElementById('others').value = habit.get("dailyFreq");
-				var weekFreq = habit.get("weekFreq");
-				for(var i = 0; i < weekFreq.length; i++){
-					document.getElementById(weekFreq[i]).checked = true;
-				}
 			}
 			window.onload = init();
 			//function handleInput
@@ -105,7 +116,6 @@
 
 			function saveHabit(){
 				var Habit = Parse.Object.extend("Habit");
-				var habit = new Habit();
 				var daysofweek = [];
 
 				var habitTitle = document.getElementById("title").value;
@@ -127,20 +137,7 @@
 					habitQuery.equalTo("habitName", habitTitle);
 
 					document.getElementById("habittitleError").value='false';
-					
-					habitQuery.first({
-						success: function(Habit){
-							if (Habit){
-								document.getElementById("habittitleError").innerHTML = '* Habit Title already exists!';
-								document.getElementById("habittitleError").value='true';
-							}
-						},
-						error: function(Habit){
-							document.getElementById("habittitleError").innerHTML = '';
-							document.getElementById("habittitleError").value='false';
-						}
 
-					});
 					if (document.getElementById("habittitleError").value=='true'){
 						return;
 					}
@@ -197,8 +194,11 @@
 						}
 						break;
 				}
-				
-				habit.save({
+				habit.set("image",imageName);
+				habit.set("habitname",habitTitle);
+				habit.set("weekFreq",daysofweek);
+				habit.set("dailyFreq",timesPerDayInt);
+				habit.save(null, {
 				  image: imageName,
 				  habitName: habitTitle,
 				  weekFreq: daysofweek,
