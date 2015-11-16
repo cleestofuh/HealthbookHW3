@@ -5,7 +5,7 @@ var username = currentuser.get("username");
 
 var Habit = Parse.Object.extend("Habit");
 var query = new Parse.Query(Habit);
-console.log(username);
+
 query.equalTo("username", username);
 query.find({
   success:function(results) {
@@ -46,10 +46,10 @@ query.find({
                           <button type='button' class='op op-done' onclick='showMsg(this);'' title='done'>\
                               <img src='../img/done.svg' alt='Done'>\
                           </button>\
-                          <button type='button' class='op op-edit' onclick='location.href='edit.html'' title='edit habit'>\
+                          <button type='button' class='op op-edit' onclick='lastHabit(/" + name + "/);' title='edit habit'>\
                               <img src='../img/edit.svg' alt='Edit'>\
                           </button>\
-                          <button type='button' class='op op-del' onclick='deleteHabit(this);'' title='delete habit'>\
+                          <button type='button' class='op op-del' onclick='deleteHabit(/" + object + "/);' title='delete habit'>\
                               <img src='../img/delete.svg' alt='Del'>\
                           </button>\
                       </div>\
@@ -61,3 +61,30 @@ query.find({
     alert("Error when getting objects!");
   }
 });
+
+function lastHabit(name){
+    currentuser.set("lastehabit", name);
+    currentuser.save(null, {
+      success: function(saved) {
+        currentuser.set("lastehabit", name);
+      },
+      error: function(saved, error) {
+      }
+    });
+    location.href = 'edit.html';
+}
+
+function showMsg(element){
+    var msgElement = (element.parentNode.parentNode.getElementsByClassName("message"))[0];
+    // alert(msgElement.innerHTML);
+    msgElement.style.visibility="visible";
+}
+
+function deleteHabit(myObj){
+  myObj.destroy({});
+  location.reload();
+    /*
+    var child = element.parentNode.parentNode;
+    var parent = child.parentNode;
+    parent.removeChild(child);*/
+}

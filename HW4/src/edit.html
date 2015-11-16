@@ -22,7 +22,7 @@
 				<img id="icon3" class="icon" onclick="selectImage('icon3');" src="../img/run.jpg" alt="run image"/>
 				<img class="icon" src="../img/add.png" alt="find a image"/>
 				<p style="color:red;" id="habiticonError" value="false"></p>
-				
+
 				<p><label>Weekly Frequency</label></p>
 				<div id="ck-button">
 					<label> <input type="checkbox" id="sunday" name="date" value="sunday"><span>Sun</span></label>
@@ -34,7 +34,7 @@
 					<label> <input type="checkbox" id="saturday" name="date" value="saturday"><span>Sat</span></label>
 				</div>
 				<p style="color:red;" id="weekfreError"></p>
-		
+
 				<p><label>Daily Frequency</label></p>
 				<div id="daily-button">
 					<label> <input type="radio" name="day" value="one"><span>1</span></label>
@@ -45,8 +45,8 @@
 				<p><label><span id="others_text">Others: </span><input id="others" type="text" name="day" placeholder="More than 3 times"></label></p>
 				<p style="color:red;" id="otherError"></p>
 
-				<p id="save_p"><input id="save" type="button" value="Save It" onclick="saveHabit()"></p>
-				
+				<p id="save_p"><input id="save" type="button" value="Save It" onclick="saveHabit();"></p>
+
 			</form>
 
 		</div>
@@ -127,13 +127,13 @@
 				}
 				else{
 					// check if title already exists
-					
+
 					habitTitle = document.getElementById("title").value;
 
 					//document.getElementById("habittitleError").innerHTML = habitTitle;
 
 					var habitQuery = new Parse.Query(Habit);
-					
+
 					habitQuery.equalTo("habitName", habitTitle);
 
 					document.getElementById("habittitleError").value='false';
@@ -195,7 +195,7 @@
 						break;
 				}
 				habit.set("image",imageName);
-				habit.set("habitname",habitTitle);
+				habit.set("habitName",habitTitle);
 				habit.set("weekFreq",daysofweek);
 				habit.set("dailyFreq",timesPerDayInt);
 				habit.save(null, {
