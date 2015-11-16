@@ -1,8 +1,12 @@
 Parse.initialize("rriccses0xkmfyCu8JHUbRB3n4mJW1H3okqs1Sjh", "z8QtkGlujwURiXFdYzi4SV7L9X6BxWdQG6bVecA2");
 
+var currentuser = Parse.User.current();
+var username = currentuser.get("username");
+
 var Habit = Parse.Object.extend("Habit");
 var query = new Parse.Query(Habit);
-
+console.log(username);
+query.equalTo("username", username);
 query.find({
   success:function(results) {
     for(var i = 0; i < results.length; i++) {
