@@ -58,6 +58,8 @@
 			Parse.initialize("rriccses0xkmfyCu8JHUbRB3n4mJW1H3okqs1Sjh", "z8QtkGlujwURiXFdYzi4SV7L9X6BxWdQG6bVecA2");
 		</script>
 		<script>
+			var currentuser = Parse.User.current();
+			var username = currentuser.get("username");
 			function init(){
 				//var image = document.getElementById("icon1");
 				//image.style.border = "5px solid #42A5F5";
@@ -65,7 +67,7 @@
 			window.onload = init();
 			//function handleInput
 
-			var imageName = document.getElementById(name);
+			var imageName/* = document.getElementById(name)*/;
 			function selectImage(name) {
 				//Clear all the other effects
 
@@ -124,6 +126,21 @@
 					document.getElementById("habittitleError").innerHTML = '';
 				}
 
+				var habitQuery = new Parse.Query(Habit);
+				habitQuery.equalTo("habitName", habitTitle);
+				habitQuery.find({
+				  success: function(number) {
+				    // Do something with the returned Parse.Object values
+				    if(number>0){
+					document.getElementById("habittitleError").innerHTML = '* Habit Title already exists!';
+					return;
+				    }
+				  },
+				  error: function(error) {
+					
+				  }
+				});
+
 				if (!imageName){
 					document.getElementById("habiticonError").innerHTML = '* Habit Icon cannot be empty!';
 					return;
@@ -176,8 +193,8 @@
 
 				// cloud code
 				
-				/*
-				Parse.Cloud.beforeSave("Habit", function(request, response)){
+				
+				/*Parse.Cloud.beforeSave("Habit", function(request, response)){
 					var newHabit = request.object;
 					var habitQuery = new Parse.Query(Habit);
 					habitQuery.equalTo("habitName", newHabit.get("habitName"));
@@ -215,13 +232,13 @@
 						}
 					});
 				}*/
-
 				
 				habit.save({
 				  image: imageName,
 				  habitName: habitTitle,
 				  weekFreq: daysofweek,
-				  dailyFreq: timesPerDayInt
+				  dailyFreq: timesPerDayInt,
+				  username: username
 				}, {
 				  success: function(habit) {
 					// The object was saved successfully.
