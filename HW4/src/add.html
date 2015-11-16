@@ -58,6 +58,8 @@
 			Parse.initialize("rriccses0xkmfyCu8JHUbRB3n4mJW1H3okqs1Sjh", "z8QtkGlujwURiXFdYzi4SV7L9X6BxWdQG6bVecA2");
 		</script>
 		<script>
+			var currentuser = Parse.User.current();
+			var username = currentuser.get("username");
 			function init(){
 				//var image = document.getElementById("icon1");
 				//image.style.border = "5px solid #42A5F5";
@@ -128,7 +130,6 @@
 				habitQuery.equalTo("habitName", habitTitle);
 				habitQuery.find({
 				  success: function(number) {
-				    alert("Successfully retrieved " + results.length + " scores.");
 				    // Do something with the returned Parse.Object values
 				    if(number>0){
 					document.getElementById("habittitleError").innerHTML = '* Habit Title already exists!';
@@ -136,7 +137,7 @@
 				    }
 				  },
 				  error: function(error) {
-				    alert("Error: " + error.code + " " + error.message);
+					
 				  }
 				});
 
@@ -236,7 +237,8 @@
 				  image: imageName,
 				  habitName: habitTitle,
 				  weekFreq: daysofweek,
-				  dailyFreq: timesPerDayInt
+				  dailyFreq: timesPerDayInt,
+				  username: username
 				}, {
 				  success: function(habit) {
 					// The object was saved successfully.
