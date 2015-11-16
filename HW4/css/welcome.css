@@ -2,13 +2,13 @@ html {
 	height: 100%;
 	width: 100%;
 	margin: 0;
-	padding: 0;	
+	padding: 0;
 	background-color: #BBDEFB;
 }
 
 body {
   font-family: 'Helvetica', sans-serif;
-  
+
   height: 100%;
   width: 100%;
   padding: 0;
@@ -27,20 +27,14 @@ i  {
 	position: relative;
 	margin: 0 auto;
   top: 15%;
-  width: 500px;
-  /*
-  left: 50%;
-  webkit-transform: translateY(-75%);
-  moz-transform: translateY(-75%);
-  ms-transform: translateY(-75%);
-  transform: translate(-50%, -75%); */
+  width: 100%;
 }
 
 .welcome h1 {
 	text-align: center;
 	color: #808080;
 	font-size: 3.5em;
-	
+
 }
 
 /* mobile version*/
@@ -49,50 +43,49 @@ i  {
   	width: auto;
   	margin: 0 20px;
   }
-  
+
   .welcome h1 {
 	text-align: center;
 	color: #808080;
 	font-size: 2.5em;
-	
+
 }
 
   .welcome h2 {
   text-align: center;
   font-size: 50%;
-  
+
   }
-   
+
 }
 
 
-
 .welcome h2 {
-   width: 100%; 
-   text-align: center; 
-   border-bottom: 1px solid #000; 
+   width: 100%;
+   text-align: center;
+   border-bottom: 1px solid #000;
    line-height: 0.1em;
-   margin: 10px 0 20px; 
+   margin: 10px 0 20px;
    margin-top: 150px;
    margin-bottom: 100px;
    font-size: 130%;
    font-weight:100;
-   
-} 
 
-.welcome h2 span { 
-    background:#fff; 
-    padding:0 10px; 
+}
+
+.welcome h2 span {
+    background:#fff;
+    padding:0 10px;
 	background-color: #BBDEFB;
-	
+
 }
 p#add{
 	text-align:center;
-	
+
 }
 .welcome .addbutton {
  -webkit-appearance:none;
-	width: 49%;
+	width: 300px;
 	display: inline-block;
 	margin: 0;
 	padding: 15px;
@@ -116,3 +109,28 @@ p#add{
 	cursor: pointer;
 }
 
+.welcome .viewbutton {
+ -webkit-appearance:none;
+	width: 300px;
+	display: inline-block;
+	margin: 0;
+	padding: 15px;
+	background:none;
+	background-color: #48BA87;
+  border:none;
+  color:white;
+  -webkit-border-radius: 5px; /*For Safari, etc. */
+  -moz-border-radius: 5px; /* For Mozilla, etc. */
+  border-radius: 5px; /* CSS3 Feature */
+  opacity: 1.0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  font-size: 20px;
+}
+
+
+.welcome .viewbutton:hover {
+	opacity: 0.75;
+	cursor: pointer;
+}
