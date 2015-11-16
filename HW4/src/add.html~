@@ -124,22 +124,6 @@
 					document.getElementById("habittitleError").innerHTML = '';
 				}
 
-				var habitQuery = new Parse.Query(Habit);
-				habitQuery.equalTo("habitName", habitTitle);
-				habitQuery.find({
-				  success: function(number) {
-				    alert("Successfully retrieved " + results.length + " scores.");
-				    // Do something with the returned Parse.Object values
-				    if(number>0){
-					document.getElementById("habittitleError").innerHTML = '* Habit Title already exists!';
-					return;
-				    }
-				  },
-				  error: function(error) {
-				    alert("Error: " + error.code + " " + error.message);
-				  }
-				});
-
 				if (!imageName){
 					document.getElementById("habiticonError").innerHTML = '* Habit Icon cannot be empty!';
 					return;
@@ -231,6 +215,22 @@
 						}
 					});
 				}*/
+
+				var habitQuery = new Parse.Query(Habit);
+				habitQuery.equalTo("habitName", habitTitle);
+				habitQuery.find({
+				  success: function(number) {
+				    alert("Successfully retrieved " + results.length + " scores.");
+				    // Do something with the returned Parse.Object values
+				    if(number>0){
+					document.getElementById("habittitleError").innerHTML = '* Habit Title already exists!';
+					return;
+				    }
+				  },
+				  error: function(error) {
+				    alert("Error: " + error.code + " " + error.message);
+				  }
+				});
 				
 				habit.save({
 				  image: imageName,

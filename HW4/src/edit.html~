@@ -3,64 +3,75 @@
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>Add a habit</title>
+		<title>Edit a habit</title>
 		<link rel="stylesheet" href="../css/forms.css">
-		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-		<script type="text/javascript" src="http://www.parsecdn.com/js/parse-latest.js"></script>
 	</head>
 	<body>
+		<script>
+			function onStart() {
+            	document.getElementById("icon3").style.border="5px solid #42A5F5";
+
+			}
+			window.onload = onStart;
+		</script>
 		<div class="forms">
-			<h2>Add A Habit</h2>
+			<h2>Edit A Habit</h2>
 			<form>
 				<p><label><span id="title_text">Habit Title</span></label></p>
-				<p><input id="title" type="text" name="fullname" placeholder="Exercise 30 minutes"></p>
-				<p style="color:red;" id="habittitleError"></p>
-
+				<p><input id="title" type="text" name="fullname" value="Exercise 30 minutes"></p>
 				<p><label>Habit Icon</label></p>
 				<img id="icon1" class="icon" onclick="selectImage('icon1');" src="../img/sleep.jpg" alt="sleep image"/>
 				<img id="icon2" class="icon" onclick="selectImage('icon2');" src="../img/salad.jpg" alt="eat image"/>
 				<img id="icon3" class="icon" onclick="selectImage('icon3');" src="../img/run.jpg" alt="run image"/>
-				<img id="icon4" class="icon" src="../img/add.png" alt="find a image"/>
-				<p style="color:red;" id="habiticonError" value="false"></p>
-
+				<img class="icon" src="../img/add.png" alt="find a image"/>
 				<p><label>Weekly Frequency</label></p>
 				<div id="ck-button">
-					<label> <input type="checkbox" name="date" value="sunday"><span>Sun</span></label>
+					<label> <input type="checkbox" name="date" value="sunday" checked><span>Sun</span></label>
 					<label> <input type="checkbox" name="date" value="monday"><span>Mon</span></label>
-					<label> <input type="checkbox" name="date" value="tuesday"><span>Tues</span></label>
+					<label> <input type="checkbox" name="date" value="tuesday" checked><span>Tues</span></label>
 					<label> <input type="checkbox" name="date" value="wednesday"><span>Wed</span></label>
-					<label> <input type="checkbox" name="date" value="thursday"><span>Thur</span></label>
+					<label> <input type="checkbox" name="date" value="thursday" checked><span>Thur</span></label>
 					<label> <input type="checkbox" name="date" value="friday"><span>Fri</span></label>
 					<label> <input type="checkbox" name="date" value="saturday"><span>Sat</span></label>
 				</div>
-				<p style="color:red;" id="weekfreError"></p>
 		
 		
 				<p><label>Daily Frequency</label></p>
 				<div id="daily-button">
-					<label> <input type="radio" name="day" value="one"><span>1</span></label>
-					<label> <input type="radio" name="day" value="two"><span>2</span></label>
-					<label> <input type="radio" name="day" value="three"><span>3</span></label>
+					<label> <input type="checkbox" name="day" value="one"><span>1</span></label>
+					<label> <input type="checkbox" name="day" value="two"><span>2</span></label>
+					<label> <input type="checkbox" name="day" value="three" checked><span>3</span></label>
 					<span id="times">times</span>
 				</div>
 				<p><label><span id="others_text">Others: </span><input id="others" type="text" name="day" placeholder="More than 3 times"></label></p>
-				<p style="color:red;" id="otherError"></p>
-
-				<p id="save_p"><input id="save" type="button" value="Save It" onclick="saveHabit()"></p>
+				<p id="save_p"><input id="save" type="button" value="Save It" onclick="location.href='list.html'"></p>
 				
 			</form>
+
 		</div>
-
-
-    	<button type="button" id="goBack" onclick="location.href='list.html'" title="list habit">←</button>
-
 		<script type="text/javascript">
 			Parse.initialize("rriccses0xkmfyCu8JHUbRB3n4mJW1H3okqs1Sjh", "z8QtkGlujwURiXFdYzi4SV7L9X6BxWdQG6bVecA2");
 		</script>
 		<script>
+			var username = "Bob";
+			var user;
+			var habit;
 			function init(){
-				//var image = document.getElementById("icon1");
-				//image.style.border = "5px solid #42A5F5";
+				//fetch habit from database
+				var Habit = Parse.Object.extend("Habit");
+				var User = Parse.Object.extend("User");
+				var userquery = new Parse.Query(User);
+				query.equalTo("username", username);
+				query.find({
+				  success: function(results) {
+				    alert("Successfully retrieved " + results.length + " scores.");
+				    // Do something with the returned Parse.Object values
+				    user = results[0];
+				  },
+				  error: function(error) {
+				    alert("Error: " + error.code + " " + error.message);
+				  }
+				});
 			}
 			window.onload = init();
 			//function handleInput
@@ -124,22 +135,6 @@
 					document.getElementById("habittitleError").innerHTML = '';
 				}
 
-				var habitQuery = new Parse.Query(Habit);
-				habitQuery.equalTo("habitName", habitTitle);
-				habitQuery.find({
-				  success: function(number) {
-				    alert("Successfully retrieved " + results.length + " scores.");
-				    // Do something with the returned Parse.Object values
-				    if(number>0){
-					document.getElementById("habittitleError").innerHTML = '* Habit Title already exists!';
-					return;
-				    }
-				  },
-				  error: function(error) {
-				    alert("Error: " + error.code + " " + error.message);
-				  }
-				});
-
 				if (!imageName){
 					document.getElementById("habiticonError").innerHTML = '* Habit Icon cannot be empty!';
 					return;
@@ -192,8 +187,8 @@
 
 				// cloud code
 				
-				
-				/*Parse.Cloud.beforeSave("Habit", function(request, response)){
+				/*
+				Parse.Cloud.beforeSave("Habit", function(request, response)){
 					var newHabit = request.object;
 					var habitQuery = new Parse.Query(Habit);
 					habitQuery.equalTo("habitName", newHabit.get("habitName"));
@@ -231,6 +226,7 @@
 						}
 					});
 				}*/
+
 				
 				habit.save({
 				  image: imageName,
