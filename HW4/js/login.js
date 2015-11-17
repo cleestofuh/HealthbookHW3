@@ -21,7 +21,28 @@ $(function() {
     Parse.User.logIn(name, pass, {
 
       success: function(user){
+
+        // saves date of last login
+        var time = new Date();
+        var timeMili = time.getFullYear()*10000 + (time.getMonth()+1)*100 + time.getDate();
+        user.set("lastLoginTime", timeMili);
+        console.log("Time " + timeMili);
+        user.save(null, {
+          lastLoginTime: timeMili
+        }, {
+          success: function(user) {
+            console.log("save login time successful");
+            document.getElementById('save').value = 'Saved!';
+          },
+          error: function(user, error) {
+            console.log("error when saving login time");
+            document.getElementById('save').value = 'Error while saving.';
+          }
+        });
+
         window.location = "welcome.html";
+
+
       },
       error: function(user, error){
         alert('Incorrect Username and/or Password');
