@@ -54,7 +54,10 @@ query.find({
                           </button>\
                       </div>\
                   </li>");
+            console.log("HabitName: " + habitName);
         }
+
+        console.log("Success in loadng habits");
 
     },
     error:function(error) {

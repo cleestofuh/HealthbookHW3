@@ -55,9 +55,10 @@ $(function ()
     console.log(username);
     console.log(username.length);
     if (username.length > 17) {
-        username = username.substring(0, 17) + "...";
+        var name = username;
+        name = name.substring(0, 17) + "...";
     }
-    $("#username").append("<li>" + username + "<ul id='logout' onclick='logoutButton()'>\
+    $("#username").append("<li>" + name + "<ul id='logout' onclick='logoutButton()'>\
      <li>Logout</li>\
      </ul></li>");
 });
