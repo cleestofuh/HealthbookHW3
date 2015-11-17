@@ -5,7 +5,7 @@ var username = currentuser.get("username");
 
 var Habit = Parse.Object.extend("Habit");
 var query = new Parse.Query(Habit);
-console.log(username);
+
 query.equalTo("username", username);
 query.find({
   success:function(results) {
@@ -34,22 +34,22 @@ query.find({
                       </ul>\
                       <div class='message'>\
                           <span class='message-total'>\
-                              <strong>" + dFreq + "</strong> days in a row! Best Record: <strong>5</strong><br>\
+                              <strong>2</strong> days in a row! Best Record: <strong>5</strong><br>\
                               <svg height='25' width='150'>\
                                   <line x1='0' y1='0' x2='60' y2='0' style='stroke:rgba(65, 131, 215, 0.8);stroke-width:25' />\
                                   <line x1='60' y1='0' x2='150' y2='0' style='stroke:rgba(171,171,171,0.6);stroke-width:25' />\
                               </svg>\
                           </span><br>\
-                          <span class='message-today'>Completed <strong>1/1</strong> for today!</span>\
+                          <span class='message-today'>Completed <strong>1/"+ dFreq + "</strong> for today!</span>\
                       </div>\
                       <div class='habit-op'>\
                           <button type='button' class='op op-done' onclick='showMsg(this);'' title='done'>\
                               <img src='../img/done.svg' alt='Done'>\
                           </button>\
-                          <button type='button' class='op op-edit' onclick='location.href='edit.html'' title='edit habit'>\
+                          <button type='button' class='op op-edit' onclick='lastHabit(/" + name + "/);' title='edit habit'>\
                               <img src='../img/edit.svg' alt='Edit'>\
                           </button>\
-                          <button type='button' class='op op-del' onclick='deleteHabit(this);'' title='delete habit'>\
+                          <button type='button' class='op op-del' onclick='deleteHabit(/" + name + "/);' title='delete habit'>\
                               <img src='../img/delete.svg' alt='Del'>\
                           </button>\
                       </div>\
@@ -61,3 +61,40 @@ query.find({
     alert("Error when getting objects!");
   }
 });
+
+function lastHabit(name){
+    currentuser.set("lastehabit", name);
+    currentuser.save(null, {
+      success: function(saved) {
+        currentuser.set("lastehabit", name);
+      },
+      error: function(saved, error) {
+      }
+    });
+    location.href = 'edit.html';
+}
+
+function showMsg(element){
+    var msgElement = (element.parentNode.parentNode.getElementsByClassName("message"))[0];
+    // alert(msgElement.innerHTML);
+    msgElement.style.visibility="visible";
+}
+
+function deleteHabit(name){
+  query.equalTo("habitName", name);
+  query.first({
+    success: function(object) {
+      object.destroy({});
+      console.log("deleted");
+      location.reload();
+    },
+    error: function(error) {
+      console.log("error");
+    }
+
+  });
+
+  /*  var child = element.parentNode.parentNode;
+    var parent = child.parentNode;
+    parent.removeChild(child);*/
+}
