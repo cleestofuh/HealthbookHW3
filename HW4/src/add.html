@@ -12,7 +12,7 @@
 	<body>
 		<div class="topBar"><ul id="username"></ul><div id="settings">Settings</div></div>
 
-	<div class="forms">
+		<div class="forms">
 			<h2>Add A Habit</h2>
 			<form>
 				<p><label><span id="title_text">Habit Title</span></label></p>
@@ -37,8 +37,8 @@
 					<label> <input type="checkbox" name="date" value="saturday"><span>Sat</span></label>
 				</div>
 				<p style="color:red;" id="weekfreError"></p>
-		
-		
+
+
 				<p><label>Daily Frequency</label></p>
 				<div id="daily-button">
 					<label> <input type="radio" name="day" value="one"><span>1</span></label>
@@ -50,12 +50,12 @@
 				<p style="color:red;" id="otherError"></p>
 
 				<p id="save_p"><input id="save" type="button" value="Save It" onclick="saveHabit()"></p>
-				
+
 			</form>
 		</div>
 
 
-    	<button type="button" id="goBack" onclick="location.href='list.html'" title="list habit">←</button>
+		<button type="button" id="goBack" onclick="location.href='list.html'" title="list habit">←</button>
 
 		<script type="text/javascript">
 			Parse.initialize("rriccses0xkmfyCu8JHUbRB3n4mJW1H3okqs1Sjh", "z8QtkGlujwURiXFdYzi4SV7L9X6BxWdQG6bVecA2");
@@ -69,11 +69,9 @@
 			}
 			window.onload = init();
 			//function handleInput
-
 			var imageName/* = document.getElementById(name)*/;
 			function selectImage(name) {
 				//Clear all the other effects
-
 				// Test to push
 				document.getElementById('icon1').style.border = "none";
 				document.getElementById('icon2').style.border = "none";
@@ -82,15 +80,11 @@
 				image.style.border = "5px solid #42A5F5";
 				imageName = name;
 			}
-
-
 			function saveHabit(){
 				var Habit = Parse.Object.extend("Habit");
 				var habit = new Habit();
 				var daysofweek = [];
-
 				var habitTitle = document.getElementById("title").value;
-
 				// check for title
 				if (!habitTitle){
 					document.getElementById("habittitleError").innerHTML = '* Habit Title cannot be empty!';
@@ -98,17 +92,14 @@
 				}
 				else{
 					// check if title already exists
-					
+
 					habitTitle = document.getElementById("title").value;
-
 					//document.getElementById("habittitleError").innerHTML = habitTitle;
-
 					var habitQuery = new Parse.Query(Habit);
-					
-					habitQuery.equalTo("habitName", habitTitle);
 
+					habitQuery.equalTo("habitName", habitTitle);
 					document.getElementById("habittitleError").value='false';
-					
+
 					habitQuery.first({
 						success: function(Habit){
 							if (Habit){
@@ -120,30 +111,26 @@
 							document.getElementById("habittitleError").innerHTML = '';
 							document.getElementById("habittitleError").value='false';
 						}
-
 					});
 					if (document.getElementById("habittitleError").value=='true'){
 						return;
 					}
-
 					document.getElementById("habittitleError").innerHTML = '';
 				}
-
 				var habitQuery = new Parse.Query(Habit);
 				habitQuery.equalTo("habitName", habitTitle);
 				habitQuery.find({
-				  success: function(number) {
-				    // Do something with the returned Parse.Object values
-				    if(number>0){
-					document.getElementById("habittitleError").innerHTML = '* Habit Title already exists!';
-					return;
-				    }
-				  },
-				  error: function(error) {
-					
-				  }
-				});
+					success: function(number) {
+						// Do something with the returned Parse.Object values
+						if(number>0){
+							document.getElementById("habittitleError").innerHTML = '* Habit Title already exists!';
+							return;
+						}
+					},
+					error: function(error) {
 
+					}
+				});
 				if (!imageName){
 					document.getElementById("habiticonError").innerHTML = '* Habit Icon cannot be empty!';
 					return;
@@ -151,11 +138,9 @@
 				else{
 					document.getElementById("habiticonError").innerHTML = '';
 				}
-
 				$("input:checkbox[name=date]:checked").each(function(){
 					daysofweek.push($(this).val());
 				});
-
 				if(daysofweek.length==0){
 					//daysofweek = ["sunday","monday","tuesday","wednesday","thursday","friday","saturday"];
 					document.getElementById("weekfreError").innerHTML = '* Weekly Frequency cannot be empty!';
@@ -164,8 +149,6 @@
 				else{
 					document.getElementById("weekfreError").innerHTML = '';
 				}
-
-
 				var timesPerDay = $('input[name="day"]:checked').val();
 				var timesPerDayInt;
 				if(typeof timesPerDay === 'undefined'){
@@ -193,68 +176,67 @@
 						}
 						break;
 				}
-
 				// cloud code
-				
-				
+
+
 				/*Parse.Cloud.beforeSave("Habit", function(request, response)){
-					var newHabit = request.object;
-					var habitQuery = new Parse.Query(Habit);
-					habitQuery.equalTo("habitName", newHabit.get("habitName"));
-					habitQuery.first({
-						success: function(object){
-							if (object){
-								response.error("* Habit already exists!");
-								document.getElementById("habittitleError").innerHTML = '* Habit Title already exists!';}
-							} else {
-								habit.save({
-								  image: imageName,
-								  habitName: habitTitle,
-								  weekFreq: daysofweek,
-								  dailyFreq: timesPerDayInt
-								}, {
-								  success: function(habit) {
-									// The object was saved successfully.
-									console.log('successfully saved habit');
-									document.getElementById('save').value = 'Saved!';
-									window.location.assign("list.html");
-									response.success();
-								  },
-								  error: function(habit, error) {
-									// The save failed.
-									// error is a Parse.Error with an error code and message.
-									console.log('failed to save habit');
-									document.getElementById('save').value = 'Error while saving.';
-									response.error(error);
-								  }
-								});
-							}
-						},
-						error: function(error){
-							response.error("Could not validate uniqueness for this Habit object")
-						}
-					});
-				}*/
-				
+				 var newHabit = request.object;
+				 var habitQuery = new Parse.Query(Habit);
+				 habitQuery.equalTo("habitName", newHabit.get("habitName"));
+				 habitQuery.first({
+				 success: function(object){
+				 if (object){
+				 response.error("* Habit already exists!");
+				 document.getElementById("habittitleError").innerHTML = '* Habit Title already exists!';}
+				 } else {
+				 habit.save({
+				 image: imageName,
+				 habitName: habitTitle,
+				 weekFreq: daysofweek,
+				 dailyFreq: timesPerDayInt
+				 }, {
+				 success: function(habit) {
+				 // The object was saved successfully.
+				 console.log('successfully saved habit');
+				 document.getElementById('save').value = 'Saved!';
+				 window.location.assign("list.html");
+				 response.success();
+				 },
+				 error: function(habit, error) {
+				 // The save failed.
+				 // error is a Parse.Error with an error code and message.
+				 console.log('failed to save habit');
+				 document.getElementById('save').value = 'Error while saving.';
+				 response.error(error);
+				 }
+				 });
+				 }
+				 },
+				 error: function(error){
+				 response.error("Could not validate uniqueness for this Habit object")
+				 }
+				 });
+				 }*/
+
 				habit.save({
-				  image: imageName,
-				  habitName: habitTitle,
-				  weekFreq: daysofweek,
-				  dailyFreq: timesPerDayInt,
-				  username: username
+					image: imageName,
+					habitName: habitTitle,
+					weekFreq: daysofweek,
+					dailyFreq: timesPerDayInt,
+					username: username
 				}, {
-				  success: function(habit) {
-					// The object was saved successfully.
-					console.log('successfully saved habit');
-					document.getElementById('save').value = 'Saved!';
-					window.location.assign("list.html");
-				  },
-				  error: function(habit, error) {
-					// The save failed.
-					// error is a Parse.Error with an error code and message.
-					console.log('failed to save habit');
-					document.getElementById('save').value = 'Error while saving.';
-				  }
+					success: function(habit) {
+						// The object was saved successfully.
+						console.log('successfully saved habit');
+						document.getElementById('save').value = 'Saved!';
+						window.location.assign("list.html");
+					},
+					error: function(habit, error) {
+						// The save failed.
+						// error is a Parse.Error with an error code and message.
+						console.log('failed to save habit');
+						document.getElementById('save').value = 'Error while saving.';
+					}
 				});
 			}
 		</script>
