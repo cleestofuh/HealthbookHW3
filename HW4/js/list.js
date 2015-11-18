@@ -86,15 +86,11 @@ function deleteHabit(name){
     success: function(object) {
       object.destroy({});
       console.log("deleted");
-      location.reload();
+      window.location.assign("list.html");;
     },
     error: function(error) {
       console.log("error");
     }
 
   });
-
-  /*  var child = element.parentNode.parentNode;
-    var parent = child.parentNode;
-    parent.removeChild(child);*/
 }
