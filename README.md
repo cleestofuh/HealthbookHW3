@@ -11,3 +11,6 @@ Nan Shu
 Allen Lin
 
 Inchul Park
+
+-----------------------------------------------------------------------
+- When deleting, you may have to press the button twice for some reason. 
