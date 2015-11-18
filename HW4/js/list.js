@@ -15,6 +15,7 @@ query.find({
       var name = object.get('habitName');
       var dFreq = object.get('dailyFreq');
       var image = object.get('image');
+      var count = object.get('thumbscount');
       var imagesrc;
 
       if(image == "icon1") {
@@ -34,16 +35,16 @@ query.find({
                       </ul>\
                       <div class='message'>\
                           <span class='message-total'>\
-                              <strong>2</strong> days in a row! Best Record: <strong>5</strong><br>\
+                              <strong>0</strong> days in a row! Best Record: <strong>0</strong><br>\
                               <svg height='25' width='150'>\
                                   <line x1='0' y1='0' x2='60' y2='0' style='stroke:rgba(65, 131, 215, 0.8);stroke-width:25' />\
                                   <line x1='60' y1='0' x2='150' y2='0' style='stroke:rgba(171,171,171,0.6);stroke-width:25' />\
                               </svg>\
                           </span><br>\
-                          <span class='message-today'>Completed <strong>1/"+ dFreq + "</strong> for today!</span>\
+                          <span class='message-today'>Completed <strong>" + count + "/"+ dFreq + "</strong> for today!</span>\
                       </div>\
                       <div class='habit-op'>\
-                          <button type='button' class='op op-done' onclick='showMsg(this);'' title='done'>\
+                          <button type='button' class='op op-done' onclick='showMsg(this);keepCount(/" + name + "/);' title='done'>\
                               <img src='../img/done.svg' alt='Done'>\
                           </button>\
                           <button type='button' class='op op-edit' onclick='lastHabit(/" + name + "/);' title='edit habit'>\
@@ -78,6 +79,26 @@ function showMsg(element){
     var msgElement = (element.parentNode.parentNode.getElementsByClassName("message"))[0];
     // alert(msgElement.innerHTML);
     msgElement.style.visibility="visible";
+}
+
+function keepCount(name){
+  query.equalTo("habitName", name);
+  query.first({
+    success: function(object) {
+      console.log(object.get("thumbscount"));
+      console.log(object.get("dailyFreq"));
+      if(object.get("thumbscount") < object.get("dailyFreq")) {
+        object.increment('thumbscount');
+        object.save();
+        console.log(object.get("thumbscount"));
+      }
+    },
+    error: function(error) {
+      console.log("error");
+    }
+
+  });
+
 }
 
 function deleteHabit(name){

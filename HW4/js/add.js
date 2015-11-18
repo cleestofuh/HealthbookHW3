@@ -121,7 +121,8 @@
       habitName: habitTitle,
       weekFreq: daysofweek,
       dailyFreq: timesPerDayInt,
-      username: username
+      username: username,
+      thumbscount: 0
     }, {
       success: function(habit) {
         // The object was saved successfully.
