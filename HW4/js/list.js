@@ -67,11 +67,11 @@ function lastHabit(name){
     currentuser.save(null, {
       success: function(saved) {
         currentuser.set("lastehabit", name);
+        window.location.assign("edit.html");
       },
       error: function(saved, error) {
       }
     });
-    location.href = 'edit.html';
 }
 
 function showMsg(element){
@@ -86,7 +86,7 @@ function deleteHabit(name){
     success: function(object) {
       object.destroy({});
       console.log("deleted");
-      window.location.assign("list.html");;
+      window.location.assign("list.html");
     },
     error: function(error) {
       console.log("error");
