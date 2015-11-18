@@ -1,8 +1,68 @@
 /* basic structure & layout */
+
+
+.topBar {
+    z-index: 1000;
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:60px;
+    background-color:black;
+    color: white;
+}
+
+.topBar #username {
+    float:left;
+    text-align:left;
+    position:relative;
+    /*margin-right:20px;
+    margin-left:auto;
+    margin-top:20px;*/
+    padding-top:21px;
+    padding-bottom:21px;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin:0;
+    width: 170px;
+    list-style: none;
+}
+
+.topBar #username:hover {
+    background-color: grey;
+}
+
+.topBar #username li ul {
+    display: none;
+    list-style: none;
+    text-align:left;
+    padding:15px;
+    padding-right:126px;
+    background-color: white;
+    margin-top:21px;
+    color:black;
+}
+
+.topBar #username:hover ul, #username li.hover ul {
+    display: block;
+    position: absolute;
+    color: black;
+
+}
+
+.topBar #settings {
+    float:right;
+    color:white;
+    padding-top:21px;
+    padding-bottom:21px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
 html{height: 100%;}
 h1{color:#888;text-align: center;}
 body{
-    height:100%;   
+    height:100%;
     background: -webkit-linear-gradient(left top, #BBDEFB, #B0C4DE) fixed; /* For Safari 5.1 to 6.0 */
     background: -o-linear-gradient(bottom right,#BBDEFB, #B0C4DE) fixed; /* For Opera 11.1 to 12.0 */
     background: -moz-linear-gradient(bottom right, #BBDEFB, #B0C4DE) fixed; /* For Firefox 3.6 to 15 */
@@ -59,6 +119,6 @@ body{
 /* desktop, tablet */
 @media only screen
     and (min-width: 500px) {
-    section{width:500px;margin: 0 auto;}
+    section{width:500px;margin: 0 auto; }
     .message{right:60px;bottom:80px;}
 }
