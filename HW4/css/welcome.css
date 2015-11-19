@@ -146,32 +146,43 @@ p#add{
     color: white;
 }
 
-.topBar #username {
+
+.topBar #username{
     float:right;
     text-align:left;
     position:relative;
-    /*margin-right:20px;
-    margin-left:auto;
-    margin-top:20px;*/
     padding-top:21px;
     padding-bottom:21px;
     padding-left: 20px;
     padding-right: 20px;
     margin:0;
-    /*width: 170px;*/
     list-style: none;
 }
 
-.topBar #username:hover {
+.topBar #settings{
+    float:right;
+    text-align:left;
+    position:relative;
+    padding-top:21px;
+    padding-bottom:21px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin:0;
+    margin-right: 10px;
+    list-style: none;
+}
+
+
+.topBar #username:hover, #settings:hover {
     background-color: grey;
 }
 
 .topBar #username li ul {
     display: none;
+    float: right;
     list-style: none;
     text-align:left;
     padding:15px;
-    padding-right:126px;
     background-color: white;
     margin-top:21px;
     color:black;
@@ -196,3 +207,10 @@ p#add{
 .topBar #navHome:hover, #navHabitList:hover , #navAdd:hover{
     background-color: grey;
 }
+
+/* phone */
+@media only screen
+and (max-width: 500px) {
+    .topBar{height: 120px;}
+}
+

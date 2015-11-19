@@ -40,6 +40,9 @@ $(function() {
           }
         });
 
+
+        console.log("cookie set");
+
         window.location = "welcome.html";
 
 
