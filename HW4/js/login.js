@@ -25,10 +25,18 @@ $(function() {
         // saves date of last login
         var time = new Date();
         var timeMili = time.getFullYear()*10000 + (time.getMonth()+1)*100 + time.getDate();
-        user.set("lastLoginTime", timeMili);
+        var last = user.get("loginTime");
+
+        if(last == undefined) {
+          last = timeMili;
+        }
+        user.set("lastLoginTime", last);
+        user.set("loginTime", timeMili);
+
         console.log("Time " + timeMili);
         user.save(null, {
-          lastLoginTime: timeMili
+          lastLoginTime: last,
+          loginTime: timeMili
         }, {
           success: function(user) {
             console.log("save login time successful");

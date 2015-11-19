@@ -1,6 +1,7 @@
 Parse.initialize("rriccses0xkmfyCu8JHUbRB3n4mJW1H3okqs1Sjh", "z8QtkGlujwURiXFdYzi4SV7L9X6BxWdQG6bVecA2");
 
 var currentuser = Parse.User.current();
+currentuser.fetch();
 var username = currentuser.get("username");
 
 var habitCount = 0;
@@ -23,14 +24,9 @@ query.count({
 
 // Notifies the user on first login of the day that they have n number of habits to update
 function dailyNotification(count) {
-    // Get current date
-    var date = new Date();
-    var currentDate = date.getFullYear()*10000 + (date.getMonth()+1)*100 + date.getDate();
-    console.log("CurrentDate: " + currentDate);
-    console.log("Last login: " + currentuser.get("lastLoginTime"));
 
     //notify user only if first login of the day
-    if (currentDate > currentuser.get("lastLoginTime") && checkNoticiationSettings()) {
+    if (currentuser.get("loginTime") > currentuser.get("lastLoginTime") && checkNoticiationSettings()) {
         if (!("Notification" in window)) {
             alert("Update your " + count + " habits!");
         }
@@ -45,10 +41,10 @@ function dailyNotification(count) {
             });
         }
 
-        currentuser.set("lastLoginTime", currentDate);
-        console.log("Time " + currentDate);
+        var loginTime = currentuser.get("loginTime");
+        currentuser.set("lastLoginTime", loginTime);
         currentuser.save(null, {
-            lastLoginTime: currentDate
+            lastLoginTime: loginTime
         }, {
             success: function(currentuser) {
                 console.log("save login time successful");
@@ -59,6 +55,8 @@ function dailyNotification(count) {
                 document.getElementById('save').value = 'Error while saving.';
             }
         });
+
+
     }
 }
 
@@ -79,75 +77,53 @@ function checkNoticiationSettings() {
 
 // Change notification settings
 function changeNotificationSettings(value) {
+    console.log("changeNotificationSettings()");
 
     currentuser.set("notificationSetting", value);
     currentuser.save(null, {
         notificationSetting: value
     }, {
-        success: function(user) {
+        success: function(saved) {
             console.log("save notification successful");
             document.getElementById('save').value = 'Saved!';
         },
-        error: function(user, error) {
+        error: function(saved, error) {
             console.log("error when saving notification");
             document.getElementById('save').value = 'Error while saving.';
         }
     });
+
 }
 
-function setCookie() {
-    document.cookie = ("notificationStatus=" + currentuser.get("notificationSetting"));
-}
-
-function getCookie(cname) {
-    var name = cname + "=";
-    var ca = document.cookie.split(';');
-    for(var i=0; i<ca.length; i++) {
-        var c = ca[i];
-        while (c.charAt(0)==' ') c = c.substring(1);
-        if (c.indexOf(name) == 0) {
-            return c.substring(name.length, c.length);
-        }
-    }
-    return "";
-}
 
 function notificationSettingClicked() {
     console.log("Current user: " + currentuser.get("username"));
 
-    //var status = checkNoticiationSettings();
+    var status = checkNoticiationSettings();
 
-    var status = getCookie("notificationStatus");
+    /*var status = getCookie("notificationStatus");*/
     console.log("Before: " + status);
 
 
     if (status === "on") {
         var result = confirm("Do you want to turn OFF notifications?");
         if (result == true) {
-            changeNotificationSettings("off");
-            status = "off"
+            changeNotificationSettings("trashcan");
+            //status = "off"
         }
     }
-    else if (status === "off"){
+    else if (status === "trashcan" || status === "off"){
         var result = confirm("Do you want to turn ON notifications?");
         if (result == true) {
             changeNotificationSettings("on");
-            status = "on";
+            //status = "on";
         }
     }
 
-    console.log("After: " + status);
+    console.log("After: " + checkNoticiationSettings());
 }
 
 $(function () {
-
-    if(getCookie("notificationStatus") == "") {
-        setCookie();
-        console.log("cookieSet");
-    }
-    else {
-        console.log("hi");
-    }
 
     $("#username").append("<li>" + username + "<ul id='logout' onclick='logoutButton()'>\
      <li>Logout</li>\
