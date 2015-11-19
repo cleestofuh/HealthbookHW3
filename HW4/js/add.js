@@ -141,15 +141,15 @@
   
   function saveJobApp(objParseFile)
   {
-     var jobApplication = new Parse.Object("JobApplication");
-     jobApplication.set("applicantName", "Joe Smith");
-     jobApplication.set("profileImg", objParseFile);
+     var jobApplication = new Parse.Object("HealthApplication");
+     jobApplication.set("applicantName", "HealthBook");
+     jobApplication.set("iconImg", objParseFile);
      jobApplication.save(null, 
      {
         success: function(gameScore) {
           // Execute any logic that should take place after the object is saved.
-          var photo = gameScore.get("profileImg");
-          $("#profileImg")[0].src = photo.url();
+          var photo = gameScore.get("iconImg");
+          $("#iconImg")[0].src = photo.url();
         },
         error: function(gameScore, error) {
           // Execute any logic that should take place if the save fails.
@@ -159,8 +159,8 @@
      });
   }
 
-  $('#profilePhotoFileUpload').bind("change", function(e) {
-         var fileUploadControl = $("#profilePhotoFileUpload")[0];
+  $('#iconPhotoFileUpload').bind("change", function(e) {
+         var fileUploadControl = $("#iconPhotoFileUpload")[0];
          var file = fileUploadControl.files[0];
          var name = file.name; //This does *NOT* need to be a unique name
          var parseFile = new Parse.File(name, file);
