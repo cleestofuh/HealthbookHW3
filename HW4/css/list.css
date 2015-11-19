@@ -8,7 +8,7 @@
     left:0;
     width:100%;
     height:60px;
-    background-color:black;
+    background-color: #BBDEFB;
     color: white;
 }
 
@@ -34,13 +34,12 @@
     padding-left: 10px;
     padding-right: 10px;
     margin:0;
-    margin-right: 10px;
     list-style: none;
 }
 
 
 .topBar #username:hover, #settings:hover {
-    background-color: grey;
+    background-color: #214864;
 }
 
 .topBar #username li ul {
@@ -71,7 +70,7 @@
 }
 
 .topBar #navHome:hover, #navHabitList:hover , #navAdd:hover{
-    background-color: grey;
+    background-color:  #214864;
 }
 
 
@@ -137,6 +136,8 @@ body{
         section{width:350px;margin: 0 auto;}
         .message{right:5px;bottom:80px;font-size: small;}
         .topBar{height: 120px;}
+        #HabitList{margin-top: 140px;}
+
 
 }
 
