@@ -41,7 +41,7 @@ query.find({
                                   <line x1='60' y1='0' x2='150' y2='0' style='stroke:rgba(171,171,171,0.6);stroke-width:25' />\
                               </svg>\
                           </span><br>\
-                          <span class='message-today'>Completed <strong>" + count + "/"+ dFreq + "</strong> for today!</span>\
+                          <span class='message-total'>Completed <strong>" + count + "/"+ dFreq + "</strong> for today!</span>\
                       </div>\
                       <div class='habit-op'>\
                           <button type='button' class='op op-done' onclick='showMsg(this);keepCount(/" + name + "/);' title='done'>\
@@ -91,6 +91,7 @@ function keepCount(name){
         object.increment('thumbscount');
         object.save();
         console.log(object.get("thumbscount"));
+        window.location.assign("list.html");
       }
     },
     error: function(error) {
