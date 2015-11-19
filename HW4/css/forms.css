@@ -236,7 +236,7 @@ span#times{
 }
 
 .topBar #username {
-	float:left;
+	float:right;
 	text-align:left;
 	position:relative;
 	/*margin-right:20px;
@@ -247,7 +247,7 @@ span#times{
 	padding-left: 20px;
 	padding-right: 20px;
 	margin:0;
-	width: 170px;
+	/*width: 170px;*/
 	list-style: none;
 }
 
@@ -273,14 +273,19 @@ span#times{
 
 }
 
-.topBar #settings {
-	float:right;
+.topBar #navHome, #navHabitList, #navAdd{
+	float:left;
 	color:white;
 	padding-top:21px;
 	padding-bottom:21px;
 	padding-left: 20px;
 	padding-right: 20px;
 }
+
+.topBar #navHome:hover, #navHabitList:hover , #navAdd:hover{
+	background-color: grey;
+}
+
 
 /* go back */
 #goBack{position:fixed; bottom: 40px; right:20px;background:rgba(33, 72, 100, 1.0); width: 60px;height:60px; vertical-align: middle; font-size:36px; padding: 5px;line-height: 100%;color:white; border:2px solid rgba(85,85,85,0.7); -webkit-appereance: none; border-radius: 50%; box-shadow: 0 0 3px gray;}

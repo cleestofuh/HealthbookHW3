@@ -10,7 +10,6 @@ var query = new Parse.Query(Habit);
 query.equalTo("username", username);
 query.count({
    success: function(count) {
-       console.log(count);
        habitCount = count;
        console.log("Habit Count: " + habitCount);
        dailyNotification(habitCount);
@@ -26,6 +25,8 @@ function dailyNotification(count) {
     // Get current date
     var date = new Date();
     var currentDate = date.getFullYear()*10000 + (date.getMonth()+1)*100 + date.getDate();
+    console.log("CurrentDate: " + currentDate);
+    console.log("Last login: " + currentuser.get("lastLoginTime"));
 
     //notify user only if first login of the day
     if (currentDate > currentuser.get("lastLoginTime")) {
@@ -42,6 +43,21 @@ function dailyNotification(count) {
                 }
             });
         }
+
+        currentuser.set("lastLoginTime", currentDate);
+        console.log("Time " + currentDate);
+        currentuser.save(null, {
+            lastLoginTime: currentDate
+        }, {
+            success: function(currentuser) {
+                console.log("save login time successful");
+                document.getElementById('save').value = 'Saved!';
+            },
+            error: function(currentuser, error) {
+                console.log("error when saving login time");
+                document.getElementById('save').value = 'Error while saving.';
+            }
+        });
     }
 }
 
@@ -50,15 +66,17 @@ function logoutButton() {
     window.location.href='login.html';
 }
 
+function goTo(page) {
+    window.location.href=page;
+}
+
 $(function ()
 {
-    console.log(username);
-    console.log(username.length);
     if (username.length > 17) {
         var name = username;
         name = name.substring(0, 17) + "...";
     }
-    $("#username").append("<li>" + name + "<ul id='logout' onclick='logoutButton()'>\
+    $("#username").append("<li>" + username + "<ul id='logout' onclick='logoutButton()'>\
      <li>Logout</li>\
      </ul></li>");
 });

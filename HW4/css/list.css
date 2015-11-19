@@ -13,7 +13,7 @@
 }
 
 .topBar #username {
-    float:left;
+    float:right;
     text-align:left;
     position:relative;
     /*margin-right:20px;
@@ -24,7 +24,7 @@
     padding-left: 20px;
     padding-right: 20px;
     margin:0;
-    width: 170px;
+    /*width: 170px;*/
     list-style: none;
 }
 
@@ -50,13 +50,22 @@
 
 }
 
-.topBar #settings {
-    float:right;
+.topBar #navHome, #navHabitList, #navAdd{
+    float:left;
     color:white;
     padding-top:21px;
     padding-bottom:21px;
     padding-left: 20px;
     padding-right: 20px;
+}
+
+.topBar #navHome:hover, #navHabitList:hover , #navAdd:hover{
+    background-color: grey;
+}
+
+
+#HabitList {
+    margin-top: 80px;
 }
 
 html{height: 100%;}

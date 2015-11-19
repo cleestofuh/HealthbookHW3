@@ -147,7 +147,7 @@ p#add{
 }
 
 .topBar #username {
-    float:left;
+    float:right;
     text-align:left;
     position:relative;
     /*margin-right:20px;
@@ -158,7 +158,7 @@ p#add{
     padding-left: 20px;
     padding-right: 20px;
     margin:0;
-    width: 170px;
+    /*width: 170px;*/
     list-style: none;
 }
 
@@ -184,11 +184,15 @@ p#add{
 
 }
 
-.topBar #settings {
-    float:right;
+.topBar #navHome, #navHabitList, #navAdd{
+    float:left;
     color:white;
     padding-top:21px;
     padding-bottom:21px;
     padding-left: 20px;
     padding-right: 20px;
+}
+
+.topBar #navHome:hover, #navHabitList:hover , #navAdd:hover{
+    background-color: grey;
 }
