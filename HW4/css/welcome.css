@@ -32,7 +32,7 @@ i  {
 
 .welcome h1 {
 	text-align: center;
-	color: #808080;
+	color: #fff;
 	font-size: 3.5em;
 
 }
@@ -54,7 +54,6 @@ i  {
   .welcome h2 {
   text-align: center;
   font-size: 50%;
-
   }
 
 }
@@ -63,7 +62,7 @@ i  {
 .welcome h2 {
    width: 100%;
    text-align: center;
-   border-bottom: 1px solid #000;
+   border-bottom: 1px solid #fff;
    line-height: 0.1em;
    margin: 10px 0 20px;
    margin-top: 150px;
@@ -76,7 +75,8 @@ i  {
 .welcome h2 span {
     background:#fff;
     padding:0 10px;
-	background-color: #BBDEFB;
+		background-color: #BBDEFB;
+		color: white;
 
 }
 p#add{
@@ -212,4 +212,3 @@ p#add{
 and (max-width: 500px) {
     .topBar{height: 120px;}
 }
-
