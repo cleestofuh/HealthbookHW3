@@ -15,10 +15,9 @@ Inchul Park
 -----------------------------------------------------------------------
 - When deleting, you may have to press the button multiple times before it deletes.
 - When editing a habit, you may have to retry it a couple times before it retrieves the correct habit to be edited.
-When clicking the thumbs up, it may take multiple tries to update.
-- There are daily notifications the user receives at the first login of the day that tells the user of the habits 
-  they need to update. There is however a bug where the new login time is not saved after the notification is 
-  displayed. And the nofication will constantly appear at every page you visit. It can be resolved by logging out and 
-  logging back in.
-- To turn on and off notifications, there is a gear icon that will notify the user if they want to turn on or off.
-- 
+- When clicking the thumbs up, it may take multiple tries to update.
+- To turn off the notifications, just clcik the gear and an alert box will pop up. As for the notification solution,
+  push notifications would have been hard for a web app and not everyone would have this application opened all the
+  time. We settled for a notification that on the first login of the day for the user, a notification would appear
+  to remind the user of the habits they have to update. Email notifications is another notification option we are
+  looking into.
