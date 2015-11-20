@@ -2,15 +2,15 @@
 CSE134B HW4
 
 
-Chris Lo
+**Chris Lo
 
-Cindy Vu
+**Cindy Vu
 
-Nan Shu
+**Nan Shu
 
-Allen Lin
+**Allen Lin
 
-Inchul Park
+**Inchul Park
 
 -----------------------------------------------------------------------
 - When deleting, you may have to press the button multiple times before it deletes.
