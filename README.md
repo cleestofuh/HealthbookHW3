@@ -1,7 +1,15 @@
 # HealthbookHW4
 CSE134B HW4
 
+<<<<<<< Updated upstream
 Members: Chris Lo, Cindy Vu, Nan Shu, Allen Lin, Inchul Park
+=======
+-Chris Lo
+-Cindy Vu
+-Nan Shu
+-Allen Lin
+-Inchul Park
+>>>>>>> Stashed changes
 
 -----------------------------------------------------------------------
 - When deleting, you may have to press the button multiple times before it deletes.
