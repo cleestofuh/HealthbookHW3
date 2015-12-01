@@ -2,11 +2,11 @@
 CSE134B
 
 -----------------------------------------------------------------------
--Chris Lo,
--Cindy Vu,
--Nan Shu,
--Allen Lin,
--Inchul Park
+- Chris Lo
+- Cindy Vu
+- Nan Shu
+- Allen Lin
+- Inchul Park
 
 ---------------------------------------------------------------------
 HW5
