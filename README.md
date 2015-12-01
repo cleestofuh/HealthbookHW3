@@ -2,9 +2,10 @@
 CSE134B
 
 -----------------------------------------------------------------------
+Members
+- Nan Shu
 - Chris Lo
 - Cindy Vu
-- Nan Shu
 - Allen Lin
 - Inchul Park
 
