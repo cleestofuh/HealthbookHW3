@@ -1,11 +1,11 @@
 # HealthbookHW
-CSE134B HW5
+CSE134B
 
 -----------------------------------------------------------------------
--Chris Lo
--Cindy Vu
--Nan Shu
--Allen Lin
+-Chris Lo,
+-Cindy Vu,
+-Nan Shu,
+-Allen Lin,
 -Inchul Park
 
 ---------------------------------------------------------------------
