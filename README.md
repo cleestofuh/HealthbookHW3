@@ -7,11 +7,14 @@ CSE134B HW5
 -Nan Shu
 -Allen Lin
 -Inchul Park
-HW5---------------------------------------------------------------------
+
+---------------------------------------------------------------------
+HW5
 - BlahBlah
 - BlahBlah
 
-HW4---------------------------------------------------------------------
+---------------------------------------------------------------------
+HW4
 - When deleting, you may have to press the button multiple times before it deletes.
 - When editing a habit, you may have to retry it a couple times before it retrieves the correct habit to be edited.
 - When clicking the thumbs up, it may take multiple tries to update.
