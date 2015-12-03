@@ -71,7 +71,7 @@
 
       }
     });
-    var parseFile = "";
+    var parseFile = null;
     if (!imageName){
       var fileUploadControl = $("#iconPhotoFileUpload")[0];
       var file = fileUploadControl.files[0];
