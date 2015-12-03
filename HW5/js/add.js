@@ -71,9 +71,20 @@
 
       }
     });
+    var parseFile = "";
     if (!imageName){
-      document.getElementById("habiticonError").innerHTML = '* Habit Icon cannot be empty!';
-      return;
+      var fileUploadControl = $("#iconPhotoFileUpload")[0];
+      var file = fileUploadControl.files[0];
+      var name = file.name; //This does *NOT* need to be a unique name
+      parseFile = new Parse.File(name, file);
+
+      parseFile.save().then(function() {
+        // The file has been saved to Parse.
+        console.log("icon saved");
+      }, function(error) {
+        // The file either could not be read, or could not be saved to Parse.
+        console.log("error saving");
+      });
     }
     else{
       document.getElementById("habiticonError").innerHTML = '';
@@ -116,13 +127,15 @@
         }
         break;
     }
+
     habit.save({
       image: imageName,
       habitName: habitTitle,
       weekFreq: daysofweek,
       dailyFreq: timesPerDayInt,
       username: username,
-      thumbscount: 0
+      thumbscount: 0,
+      iconImg: parseFile
     }, {
       success: function(habit) {
         // The object was saved successfully.
@@ -138,13 +151,13 @@
       }
     });
   }
-  
-  function saveJobApp(objParseFile)
+
+/*  function saveJobApp(objParseFile)
   {
-     var jobApplication = new Parse.Object("HealthApplication");
-     jobApplication.set("applicantName", "HealthBook");
-     jobApplication.set("iconImg", objParseFile);
-     jobApplication.save(null, 
+     var Habit = Parse.Object.extend("Habit");
+     var habit = new Habit();
+     habit.set("iconImg", objParseFile);
+     habit.save(null,
      {
         success: function(gameScore) {
           // Execute any logic that should take place after the object is saved.
@@ -167,13 +180,13 @@
 
          parseFile.save().then
          (
-           function() 
+           function()
            {
                saveJobApp(parseFile);
-           }, 
-           function(error) 
+           },
+           function(error)
            {
              alert("error");
            }
          );
-  });
+  });*/

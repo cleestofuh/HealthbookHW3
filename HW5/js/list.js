@@ -16,14 +16,17 @@ query.find({
       var dFreq = object.get('dailyFreq');
       var image = object.get('image');
       var count = object.get('thumbscount');
+      var icon = object.get('iconImg');
       var imagesrc;
 
       if(image == "icon1") {
         imagesrc = "../img/sleep.jpg";
       } else if (image == "icon2") {
         imagesrc = "../img/salad.jpg";
-      } else {
+      } else if (image == "icon3") {
         imagesrc = "../img/run.jpg";
+      } else {
+        imagesrc = icon.url();
       }
 
       // create elements
