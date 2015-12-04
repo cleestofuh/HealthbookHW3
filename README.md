@@ -26,7 +26,7 @@ HW5
            instead of phone. Screenshots of running the application are provided in the screenshots folder.
            The apk file is also included.
 - Tried to package the app to desktop App using AppJS. We're still working on it.
-  To operate the app, you need to run 'app.sh' on terminal window
+  To operate the app, you need to run 'app.sh' on terminal window (/app)
 
 ---------------------------------------------------------------------
 Contribution to HW5
@@ -37,6 +37,7 @@ Inchul Park:
 - Setup the rollbar to monitor errors and usage.
 - For phone app (iOS) POC (/HW5/HealthBook)
 - Checked all functions on various browsers in different environment.
+- AppJS for packaging desktop App
 
 Chris Lo:
 - Completed functionality of the application including uploading images and the progress bar that was previously not done.
