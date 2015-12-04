@@ -16,6 +16,7 @@ HW5
 - The HTML files may have a little bit of white space which I am not sure how to fix.
 - All the minimized files are in a folder called dist.
 - All functions of POC work but UI part needs to be fixed. (Screen Size.. etc)
+- Even if user log out, the app works as it seems. (Rollbar catches that error - After user log out, currentuser will be NULL)
 
 ---------------------------------------------------------------------
 Contribution to HW5
