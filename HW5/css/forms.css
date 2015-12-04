@@ -50,6 +50,37 @@ img.icon{
 	-webkit-transition: .3s ease-in-out;
 	transition: .3s ease-in-out;
 }
+
+.icons_sprite{
+	position: relative;
+	float: left;
+	background-image: url('../img/spritePage.png');
+	background-repeat: no-repeat;
+	background-size: 300%;
+    width: 80px;
+	height: 80px;
+	margin-right: 20px;
+	border-radius: 25px;
+	-webkit-transform: scale(1);
+	transform: scale(1);
+	-webkit-transition: .3s ease-in-out;
+	transition: .3s ease-in-out;
+}
+
+.icons_sprite:hover{
+	-webkit-transform: scale(1.3);
+	transform: scale(1.3);
+	cursor: pointer;
+}
+
+.icons_sprite#icon2{
+	background-position: -80px 0px
+}
+
+.icons_sprite#icon3{
+	background-position: -160px 0px
+}
+
 #icon4 {
 	width: 80px;
 	height: 80px;
