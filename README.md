@@ -26,7 +26,7 @@ HW5
            instead of phone. Screenshots of running the application are provided in the screenshots folder.
            The apk file is also included.
 - Tried to package the app to desktop App using AppJS. We're still working on it.
-  To operate the app, you need to run 'app.sh' on terminal window
+  To operate the app, you need to run 'app.sh' on terminal window (/app)
 
 ---------------------------------------------------------------------
 Contribution to HW5
