@@ -87,7 +87,7 @@ html{height: 100%;}
 h1{
 
   	text-align:center;
-  	background-color: rgba(33, 72, 100, 1.0);;
+  	background-color: rgba(33, 72, 100, 1);
   	padding-top: 10px;
   	padding-bottom: 10px;
   	border-top-right-radius: 20px;
@@ -114,6 +114,19 @@ div.forms {
 	bottom: auto;
 }
 
+progress {
+  margin: 30px;
+  /* Reset the default appearance */
+  -webkit-appearance: none;
+  appearance: none;
+  width: 200px;
+  height: 20px;
+}
+progress[value]::-webkit-progress-value {
+  background-color: rgba(33, 72, 100, 1);
+  border-radius: 2px;
+  background-size: 35px 20px, 100% 100%, 100% 100%;
+}
 #habit-list{list-style: none; padding:0;}
 #habit-list>li{position:relative; height: 240px;padding:5%; background:rgba(255,255,255,1); border:1px solid rgba(255, 255, 255, 0.3); border-radius:5px; margin:5px; padding:0;}
 

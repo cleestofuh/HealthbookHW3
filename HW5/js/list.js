@@ -39,10 +39,7 @@ query.find({
                       <div class='message'>\
                           <span class='message-total'>\
                               <strong>0</strong> days in a row! Best Record: <strong>0</strong><br>\
-                              <svg height='25' width='150'>\
-                                  <line x1='0' y1='0' x2='60' y2='0' style='stroke:rgba(65, 131, 215, 0.8);stroke-width:25' />\
-                                  <line x1='60' y1='0' x2='150' y2='0' style='stroke:rgba(171,171,171,0.6);stroke-width:25' />\
-                              </svg>\
+                                  <progress value=" + count + " max=" + dFreq + "></progress>\
                           </span><br>\
                           <span class='message-total'>Completed <strong>" + count + "/"+ dFreq + "</strong> for today!</span>\
                       </div>\
