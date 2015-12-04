@@ -17,6 +17,12 @@ HW5
 - All the minimized files are in a folder called dist
 
 ---------------------------------------------------------------------
+Contribution to HW5
+Chris Lo:
+- Completed functionality of the application including uploading images and the progress bar that was previously not done.
+- Checked and fixed validation issues with our HTML files
+- minimization of the files using Grunt
+---------------------------------------------------------------------
 HW4
 - When deleting, you may have to press the button multiple times before it deletes.
 - When editing a habit, you may have to retry it a couple times before it retrieves the correct habit to be edited.
@@ -26,3 +32,11 @@ HW4
   time. We settled for a notification that on the first login of the day for the user, a notification would appear
   to remind the user of the habits they have to update. Email notifications is another notification option we are
   looking into.
+
+
+---------------------------------------------------------------------
+Contribution to HW4
+Chris Lo:
+- Worked on functionality for thumbs up, login/register, deleting a habit, and dynamically listing out habits
+- changed some of the css to a more user friendly UI scheme
+- fixing bugs in add/edit javascript files
