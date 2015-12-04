@@ -12,7 +12,7 @@ Members
 ---------------------------------------------------------------------
 HW5
 - We have one error when validating with an input tag inside of an a tag. Could not find a solution for this at the time.
-- BlahBlah
+- Edit.html may not work when you have an uploaded image.
 
 ---------------------------------------------------------------------
 HW4
