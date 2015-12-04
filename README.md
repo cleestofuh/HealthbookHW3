@@ -37,6 +37,7 @@ Inchul Park:
 - Setup the rollbar to monitor errors and usage.
 - For phone app (iOS) POC (/HW5/HealthBook)
 - Checked all functions on various browsers in different environment.
+- AppJS for packaging desktop App
 
 Chris Lo:
 - Completed functionality of the application including uploading images and the progress bar that was previously not done.
