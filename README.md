@@ -25,6 +25,8 @@ HW5
            However, we are not able to sign up or login due to the purpose of our application is for web
            instead of phone. Screenshots of running the application are provided in the screenshots folder.
            The apk file is also included.
+- Tried to package the app to desktop App using AppJS. We're still working on it.
+  To operate the app, you need to run 'app.sh' on terminal window
 
 ---------------------------------------------------------------------
 Contribution to HW5
