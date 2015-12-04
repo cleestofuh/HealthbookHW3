@@ -13,6 +13,8 @@ Members
 HW5
 - We have one error when validating with an input tag inside of an a tag. Could not find a solution for this at the time.
 - Edit.html may not work when you have an uploaded image.
+- the HTML files may have a little bit of white space which I am not sure how to fix
+- All the minimized files are in a folder called dist
 
 ---------------------------------------------------------------------
 HW4
