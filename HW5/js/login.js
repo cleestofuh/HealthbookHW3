@@ -50,11 +50,9 @@ $(function() {
 
 
         console.log("cookie set");
-
         window.location = "welcome.html";
-
-
       },
+      
       error: function(user, error){
         alert('Incorrect Username and/or Password');
       }
@@ -73,14 +71,23 @@ $(function() {
 
     event.preventDefault();
 
-    var name = $("#signup-name").val();
+    var email = $("#signup-email").val();
+    var uname = $("#signup-name").val();
     var pass = $("#signup-password").val();
 
     // create new parse user and sets the username/password
     var user = new Parse.User();
 
-    user.set("username", name);
+    user.set("username", email);
+    user.set("name", uname);
     user.set("password", pass);
+    
+    mixpanel.people.set({
+        "$email": email,
+        "$name": uname,
+        "$created": Date(),
+        "$last_login": new Date(),         // properties can be dates...
+    });
 
     user.signUp(null, {
 

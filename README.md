@@ -13,8 +13,8 @@ Members
 HW5
 - We have one error when validating with an input tag inside of an a tag. Could not find a solution for this at the time.
 - Edit.html may not work when you have an uploaded image.
-- the HTML files may have a little bit of white space which I am not sure how to fix
-- All the minimized files are in a folder called dist
+- The HTML files may have a little bit of white space which I am not sure how to fix.
+- All the minimized files are in a folder called dist.
 
 ---------------------------------------------------------------------
 Contribution to HW5
@@ -27,7 +27,7 @@ Inchul Park:
 
 Chris Lo:
 - Completed functionality of the application including uploading images and the progress bar that was previously not done.
-- Checked and fixed validation issues with our HTML files
-- minimization of the files using Grunt
+- Checked and fixed validation issues with our HTML files.
+- Minimization of the files using Grunt.
 
 ---------------------------------------------------------------------
