@@ -31,7 +31,7 @@ Contribution to HW5
 
 Inchul Park:
 - Setup the mixpanel to track users behavior.
-- Login.html and Login.js (Required full name when user signs up. So, we can track users by name) 
+- Login.html and Login.js (Required full name when user signs up. So, we can track users by name).
 - Setup the rollbar to monitor errors and usage.
 - Checked all functions on various browsers in different environment.
 - For phone app (iOS) POC (/HW5/HealthBook)
