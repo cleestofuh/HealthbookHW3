@@ -33,8 +33,8 @@ Inchul Park:
 - Setup the mixpanel to track users behavior.
 - Login.html and Login.js (Required full name when user signs up. So, we can track users by name).
 - Setup the rollbar to monitor errors and usage.
-- Checked all functions on various browsers in different environment.
 - For phone app (iOS) POC (/HW5/HealthBook)
+- Checked all functions on various browsers in different environment.
 
 Chris Lo:
 - Completed functionality of the application including uploading images and the progress bar that was previously not done.
@@ -44,5 +44,8 @@ Chris Lo:
 Nan Shu:
 - For phone app (Android) POC (/HW5/HealthBook.apk)
 - Compiled an Android apk file and installed it in an Android device to test its functionalities
+
+Cindy Vu:
+- Reduced the need to fetch many images from server by creating a sprite sheet of the commonly used icons and images.
 
 ---------------------------------------------------------------------
