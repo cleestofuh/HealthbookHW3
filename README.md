@@ -17,6 +17,12 @@ HW5
 - All the minimized files are in a folder called dist.
 - All functions of POC work but UI part needs to be fixed. (Screen Size.. etc)
 - Even if user log out, the app works as it seems. (Rollbar catches that error - After user log out, currentuser will be NULL)
+- None of our teammember has a Macbook, and PhoneGap requires a developer certificate in order to compile the package
+  for IOS. Thus, we only compiled the package for Android phone. The apk file can be installed in Android devices, and the
+  interface is exactly the same as what we see in web. However, we are not able to sign up or login due to the purpose of
+  our application is for web instead of phone. Screenshots of running the application are provided in the screenshots folder.
+  The apk file is also included.
+
 
 ---------------------------------------------------------------------
 Contribution to HW5
@@ -33,4 +39,7 @@ Chris Lo:
 - Checked and fixed validation issues with our HTML files.
 - Minimization of the files using Grunt.
 
+Nan Shu:
+- For phone app (iOS and/or Android) POC
+- Compiled an Android apk file and installed it in an Android device to test its functionalities
 ---------------------------------------------------------------------
