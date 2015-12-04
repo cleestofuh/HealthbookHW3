@@ -26,7 +26,10 @@ query.count({
 function dailyNotification(count) {
 
     //notify user only if first login of the day
-    if (currentuser.get("loginTime") > currentuser.get("lastLoginTime") && checkNoticiationSettings()) {
+    var time = new Date();
+    var timeMili = time.getFullYear()*10000 + (time.getMonth()+1)*100 + time.getDate();
+
+    if (/*iurrentuser.get("loginTime")*/timeMili > currentuser.get("lastLoginTime") && checkNoticiationSettings() == "on") {
         if (!("Notification" in window)) {
             alert("Update your " + count + " habits!");
         }
@@ -41,10 +44,10 @@ function dailyNotification(count) {
             });
         }
 
-        var loginTime = currentuser.get("loginTime");
-        currentuser.set("lastLoginTime", loginTime);
+        //var loginTime = currentuser.get("loginTime");
+        currentuser.set("lastLoginTime", timeMili);
         currentuser.save(null, {
-            lastLoginTime: loginTime
+            lastLoginTime: timeMili
         }, {
             success: function(currentuser) {
                 console.log("save login time successful");
@@ -108,11 +111,11 @@ function notificationSettingClicked() {
     if (status === "on") {
         var result = confirm("Do you want to turn OFF notifications?");
         if (result == true) {
-            changeNotificationSettings("trashcan");
+            changeNotificationSettings("off");
             //status = "off"
         }
     }
-    else if (status === "trashcan" || status === "off"){
+    else if (status === "off"){
         var result = confirm("Do you want to turn ON notifications?");
         if (result == true) {
             changeNotificationSettings("on");
