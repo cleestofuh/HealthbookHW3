@@ -45,13 +45,10 @@ query.find({
                       </div>\
                       <div class='habit-op'>\
                           <button type='button' class='op op-done' onclick='showMsg(this);keepCount(/" + name + "/);' title='done'>\
-                              <img src='../img/done.svg' alt='Done'>\
                           </button>\
                           <button type='button' class='op op-edit' onclick='lastHabit(/" + name + "/);' title='edit habit'>\
-                              <img src='../img/edit.svg' alt='Edit'>\
                           </button>\
                           <button type='button' class='op op-del' onclick='deleteHabit(/" + name + "/);' title='delete habit'>\
-                              <img src='../img/delete.svg' alt='Del'>\
                           </button>\
                       </div>\
                   </li>");
