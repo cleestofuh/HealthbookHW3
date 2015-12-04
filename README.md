@@ -11,7 +11,7 @@ Members
 
 ---------------------------------------------------------------------
 HW5
-- BlahBlah
+- We have one error when validating with an input tag inside of an a tag. Could not find a solution for this at the time.
 - BlahBlah
 
 ---------------------------------------------------------------------
