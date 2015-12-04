@@ -7,7 +7,7 @@ Members
 - Chris Lo
 - Cindy Vu
 - Allen Lin
-- Inchul Park
+- Inchul Park (aboutpsm)
 
 ---------------------------------------------------------------------
 HW5
