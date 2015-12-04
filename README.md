@@ -16,7 +16,7 @@ HW5
 - The HTML files may have a little bit of white space which I am not sure how to fix.
 - All the minimized files are in a folder called dist.
 - Even if user log out, the app works as it seems. (Rollbar catches that error - After user log out, currentuser will be NULL)
-- iOS: All functions of POC work through PhoneGap but UI part needs to be fixed. (Screen Size.. etc)
+- iOS: All functions work through PhoneGap but UI part needs to be fixed. (Screen Size.. etc)
        We couldn't make the package since we don't have Apple Certification.
        However, it works perfectly except UI part (Sizing matter)
 - Android: Compiled the package. The apk file can be installed in Android devices,
