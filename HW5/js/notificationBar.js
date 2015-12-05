@@ -29,7 +29,7 @@ function dailyNotification(count) {
     var time = new Date();
     var timeMili = time.getFullYear()*10000 + (time.getMonth()+1)*100 + time.getDate();
 
-    if (/*iurrentuser.get("loginTime")*/timeMili > currentuser.get("lastLoginTime") && checkNoticiationSettings() == "on") {
+    if (/*iurrentuser.get("loginTime")*/timeMili > currentuser.get("lastLoginTime") && checkNoticiationSettings() != "off") {
         if (!("Notification" in window)) {
             alert("Update your " + count + " habits!");
         }
@@ -59,6 +59,22 @@ function dailyNotification(count) {
             }
         });
 
+
+    }
+    else {
+        currentuser.set("lastLoginTime", timeMili);
+        currentuser.save(null, {
+            lastLoginTime: timeMili
+        }, {
+            success: function(currentuser) {
+                console.log("save login time successful");
+                document.getElementById('save').value = 'Saved!';
+            },
+            error: function(currentuser, error) {
+                console.log("error when saving login time");
+                document.getElementById('save').value = 'Error while saving.';
+            }
+        });
 
     }
 }
@@ -108,18 +124,16 @@ function notificationSettingClicked() {
     console.log("Before: " + status);
 
 
-    if (status === "on") {
-        var result = confirm("Do you want to turn OFF notifications?");
-        if (result == true) {
-            changeNotificationSettings("off");
-            //status = "off"
-        }
-    }
-    else if (status === "off"){
+    if (status === "off") {
         var result = confirm("Do you want to turn ON notifications?");
         if (result == true) {
             changeNotificationSettings("on");
-            //status = "on";
+        }
+    }
+    else {
+        var result = confirm("Do you want to turn OFF notifications?");
+        if (result == true) {
+            changeNotificationSettings("off");
         }
     }
 
