@@ -27,6 +27,11 @@ HW5
            The apk file is also included.
 - Tried to package the app to desktop App using AppJS. We're still working on it.
   To operate the app, you need to run 'app.sh' on terminal window (/app)
+- - Not supported with IE
+- Multiple clicks for delete are apparent only on Chrome and Firefox. Works with 1 click on Safari
+- To turn on and off notifications you click on gear setting.
+- Notifications should be default on when people sign up
+- Only appears once a day at first login of the day
 
 ---------------------------------------------------------------------
 Contribution to HW5
@@ -42,7 +47,7 @@ Inchul Park:
 Chris Lo:
 - Completed functionality of the application including uploading images and the progress bar that was previously not done.
 - Checked and fixed validation issues with our HTML files.
-- Minimization of the files using Grunt.
+- Minimization of the files using Grunt
 
 Nan Shu:
 - For phone app (Android) POC (/HW5/HealthBook.apk)
@@ -52,3 +57,31 @@ Cindy Vu:
 - Reduced the need to fetch many images from server by creating a sprite sheet of the commonly used icons and images.
 
 ---------------------------------------------------------------------
+HW4
+
+- When deleting, you may have to press the button multiple times before it deletes.
+- When editing a habit, you may have to retry it a couple times before it retrieves the correct habit to be edited.
+- When clicking the thumbs up, it may take multiple tries to update.
+- To turn off the notifications, just click the gear and an alert box will pop up. As for the notification solution, push notifications would have been hard  for a web app and not everyone would have this application opened all the time. We settled for a notification that on the first login of the day for the user, a notification would appear to remind the user of the habits they have to update. Email notifications is another notification option we are looking into.
+
+---------------------------------------------------------------------
+Contribution to HW4
+
+Chris Lo:
+- Worked on functionality for thumbs up, login/register, deleting a habit, and dynamically listing out habits
+- changed some of the css to a more user friendly UI scheme
+- fixing bugs in add/edit javascript files
+
+Cindy Vu:
+- Worked on notifications
+- Created navigation bar to navigate around the application and to logout
+
+Allen Lin
+- Add and edit functionality
+
+Inchul Park
+- Worked on image uploading
+
+Nan Shu
+- Go back button on the add page
+- error checking when the fields weren't filled in
